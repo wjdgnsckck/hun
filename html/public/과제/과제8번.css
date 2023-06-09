@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+*{padding: 0; margin: 0;}	/*모든곳에 여백제거*/
+.la1{
+	text-align: center;
+}
+
+.la2 {
+	border: solid 1px #e8e8e8;
+}
+
