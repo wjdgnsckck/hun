@@ -1,11 +1,78 @@
 @charset "UTF-8";
 
-*{padding: 0; margin: 0;}	/*모든곳에 여백제거*/
-.la1{
+
+.head{
+	font-size: 50px;
 	text-align: center;
 }
 
-.la2 {
+.base{
 	border: solid 1px #e8e8e8;
+	
 }
 
+.log {
+	border :solid 1px #ffffff;
+	padding: 50px; margin: 30px;
+	border-bottom-color: #e8e8e8;
+	
+}
+
+.log2{
+	border: solid 1px #ffffff;
+	padding: 4px;
+	font-size: 20px;
+}
+
+.log3{
+	padding: 30px; margin :10px;
+	font-size: 20px;
+}
+
+.log4{
+	padding :10px; margin : 10px;
+	border: solid 2px yellow;
+	text-align: center;
+	font-size: 20px;
+	background-color: yellow;
+}
+
+.log5{
+	padding :10px; margin : 10px;
+	border: solid 2px gray;
+	text-align: center;
+	font-size: 20px;
+	background-color: gray;
+}
+
+.name{
+	text-align: right;
+	margin: 10px;
+	padding: 50px;
+	line-height: 5px;
+	word-spacing: 3px;
+	letter-spacing: 3px;
+	}
+
+.id{
+	padding : 4px; margin : 4px;
+	border:solid 2px #ffffff;
+	border-left-color: #e8e8e8;
+	border-right-color: #e8e8e8;
+}
+
+.last {
+	text-align: center;
+	padding:  20px;
+	letter-spacing:  3px;
+	word-spacing: 3px;
+	
+}
+
+.last2{font-weight: bold;}
+
+.last3{text-align: center;}
+
+.last4{font-weight: bold;}
+
+li{ padding: 5px 20px; list-style: none;}

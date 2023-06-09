@@ -6,18 +6,27 @@
 	<link href="과제8번.css" rel="stylesheet">
 </head>
 <body>
-	<h3 class="la1">kakao</h3>
-	<ul class="la2">
-		<li class="la3">카카오메일 아이디,이메일,전화번호</li>
-		<li class="la3">비밀번호</li>
-		<li>로그인 상태 유지</li>
-		<li>로그인</li>
-		<li>QR코드 로그인</li>
-		<li>회원가입 계정찾기 비밀번호 찾기
-	</ul>
-		<div>이용약관 개인정보 처리방침 운영정책 고객센터 공지사항 한국어</div>
-		<div>Copyright Kakao Corp. All rights reserved.</div>
-
-	
+	<form>
+		<h3 class="head">kakao</h3>
+			<ul class="base">
+				
+				<li class="log"><input class="log2"type="text" placeholder="카카오메일 아이디, 이메일, 전화번호"></li>
+				<li class="log"><input class="log2"type="password" placeholder="비밀번호"></li>
+				<li class="log3"><input type="radio" name="kakao">로그인 상태 유지</li>
+				<li class="log4"><input class="btn" type="button" value="로그인"></li>
+				<li class="log5"><input class="btn" type="button" value="QR코드 로그인"></li>
+				<li class="name">회원가입 <span class="id">계정찾기</span> 비밀번호 찾기</li>				   
+			</ul>
+			<div class="last">이용약관 
+			<span class="last2">개인정보 처리방침 </span> 운영정책 고객센터 공지사항
+			<select>
+		         <option> 한국어 </option>
+		         <option> 일본어 </option>
+		         <option> 영어 </option>
+		     </select>
+		     </div>
+			<div class="last3"> Copyright ⓒ <span class="last4">Kakao</span> Corp. All rights reserveed. </div>
+			
+	</form>
 </body>
 </html>
