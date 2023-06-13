@@ -3,56 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<link href="9_flex3.css" rel="stylesheet">
+
+	<link href="index.css" rel="stylesheet">
+
 </head>
 <body>
 
-	<h3> flex 정렬 </h3>
+	<div id="wrap"> <!-- 웹 전체 구역  -->
 	
-	<h3>1.세로정렬 align-items </h3>
-		<div class="flexbox1" >  				<!-- 상위 요소  -->
-			<div class="box1">box1</div>      	<!-- 하위 요소  -->
-			<div class="box2">box2</div>
-			<div class="box3">box3</div>
-			<div class="box4">box4</div>
-			<div class="box5">box5</div>
-			<div class="box6">box6</div>		
-		</div>
+		<div id="header">  	<!-- 헤더 -->
 		
-		<h3> flex 정렬 </h3>
-	
-	<h3>2.세로정렬  center</h3>
-		<div class="flexbox2" >  				<!-- 상위 요소  -->
-			<div class="box1">box1</div>      	<!-- 하위 요소  -->
-			<div class="box2">box2</div>
-			<div class="box3">box3</div>	
-		</div>
-		
-	<h3>3.세로정렬 flex-end </h3>
-		<div class="flexbox3" >  				<!-- 상위 요소  -->
-			<div class="box1">box1</div>      	<!-- 하위 요소  -->
-			<div class="box2">box2</div>
-			<div class="box3">box3</div>	
-		</div>
-		
-	<h3>4.세로정렬 stretch </h3>
-		<div class="flexbox4" >  				<!-- 상위 요소  -->
-			<div class="box1">box1</div>      	<!-- 하위 요소  -->
-			<div class="box2">box2</div>
-			<div class="box3">box3</div>	
-		</div>
+			<div class="h_logo">  <!-- 상단로고 -->		
+				<img src="img/logo.png" />
+			</div> <!-- 상단로고 end  -->		
 			
-	<h3>5.세로정렬 baseline </h3>
-		<div class="flexbox5" >  				<!-- 상위 요소  -->
-			<div class="box1">box1</div>      	<!-- 하위 요소  -->
-			<div class="box2">box2</div>
-			<div class="box3">box3</div>
-			<div class="box4">box4</div>
-			<div class="box5">box5</div>
-			<div class="box6">box6</div>		
-		</div>
+			<div class="h_menus"><!-- 메뉴들 -->
+				<div class="top_menu"> <!-- 상단메뉴 -->
+					김지영(jykim) 님 |
+					로그아웃 | 
+					정보수정 | 
+				</div> <!-- 상단메뉴 end  -->
+				<ul class="main_menu"> <!-- 본 메뉴 -->
+					<li> Home </li>
+					<li> 출석부 </li>
+					<li> 작품갤러리 </li>
+					<li> 게시판 </li>
+				</ul> <!-- 본 메뉴 end  -->
+			</div>	<!-- 상단메뉴 end -->
+		</div>	<!-- 헤더 end  -->
 
+		<img id="main_img" /> 		<!-- 대표 이미지  -->
 
+		<div id="content">		<!-- 본문 -->
+		
+			<div>사이드바
+				<ul class="left_content"> <!-- 왼쪽 본문 시작  -->
+					<li class="content_font">The 베이킹</li>
+					<li class="content_logo">안녕하세요. 루키의 빵 만들기 정보를 공유하고 소통하는 공간입니다.</li>
+					<li>베이킹/요리</li>
+					<li>쿠기 만들기</li>
+					<li>빵 만들기</li>
+					<li>마카롱 만들기</li>
+					<li>최근 댓글</li>
+					<li>쿠키 만들기</li>
+					<li>빵 만들기</li>
+					<li>마카롱 만들기</li>	
+						
+						
+				</ul>					 <!-- 왼쪽 본문 end  -->
+			</div>
+			<div>메인본문</div>
+		
+		</div>		<!-- 본문end -->
+
+		<div>푸터</div>	<!-- 푸터 -->
+		
+	</div> <!-- 웹 전체 구역 end  -->
+	
 
 </body>
 </html>
+
+
+
+
