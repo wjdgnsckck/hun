@@ -178,3 +178,5 @@ li{ list-style-type: none; } /* 글머리 제거 */
    margin: 0 auto;
    font-size: 9px;
 }
+
+/* background-img 사용시 이미지 여러개 나올때 background-repeat: no-repeat;*/
