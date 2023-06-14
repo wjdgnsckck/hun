@@ -119,3 +119,8 @@ width: 120px;
 	font-size: 4px;
 	color: #e8e8e8;
 }
+
+#form{
+	width: 1200px; margin: 0 auto;
+	display: flex;
+}

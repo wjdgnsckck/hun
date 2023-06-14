@@ -34,9 +34,9 @@ li{list-style-type: none;}
 
 
 .h_logo{
-	background-image:url("img/sub_intro.jpg");
+	background-image:url("img/sub_reservation.jpg");
 	width: 2000px; height: 400px;
-	margin: 0 auto; margin-top: 10px;
+	margin: 0 auto; margin-top: 5px;
 	border: solid 2px black;
 	align-items: center;	display:flex;
     justify-content: center;
@@ -45,9 +45,8 @@ li{list-style-type: none;}
 .img_lg{
 	color: #C7C591; font-size:25px;
 	width: 1200px; text-align: center;
-	font-weight: bold;
 }
 
 .img_lg2{
-	font-size: 10px;
+	font-size: 13px;
 }
