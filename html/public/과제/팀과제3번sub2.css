@@ -50,3 +50,43 @@ li{list-style-type: none;}
 .img_lg2{
 	font-size: 13px;
 }
+/*-----------------------본문 시작 -------------- */
+.main_form{
+	width: 1200px;  height : 600px;
+	margin: 0 auto; background-color : white;
+	display: flex;
+	justify-content: space-between;
+}
+
+.sub_form{
+	width: 800px; text-align: center;
+	background-color: white ;
+	padding: 30px 0px;
+	
+}
+
+.form_table{
+	width: 100%; height: 100%;
+	text-align:center;
+	background-color: #FCF9EA;
+}
+
+.sub_form li{
+	padding-top:10px;
+	font-size: 15px;
+	padding: 10px 0px;
+	color: #484B51;
+}
+
+.table{
+	margin: 0 auto;
+	padding: 10px 0px;
+}
+
+
+
+
+
+/*-----------------------------------푸터 --------- */
+
+

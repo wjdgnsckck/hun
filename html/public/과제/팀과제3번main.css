@@ -39,19 +39,20 @@ li{list-style-type: none;}
 }
 
 #form{
-	width: 1200px; margin: 0 auto;
+
 	padding-top: 50px;
 }
 
 .top_form{
 	display: flex; width: 1200px; font-size: 20px;
 	justify-content: space-between;
+	margin: 0 auto;
 
 }
 
 .form_logo{
 	background-image: url("img/icon1.png"); 
-	width: 79px; height: 76px;
+	width: 74px; height: 76px;
 }
 
 .sub_logo{
@@ -64,4 +65,89 @@ li{list-style-type: none;}
 	padding-bottom: 10px;
 }
 
- 
+.bottom_form{
+	background-color: #f0f0f0;
+	
+}
+
+.bottom_content{
+	width: 1200px; margin : 0 auto;
+	display: flex; justify-content: space-between;
+	padding: 50px; 
+}
+
+.ft_box img{
+	width: 240px; height: 200px;
+	margin: 50px 0px;
+}
+
+.ft_header{
+	font-size: 25px; margin-bottom: 10px; 
+}
+
+.ft_sub{
+	font-weight: bold;
+}
+
+/*------------------------푸터---------------  */
+
+#footer{
+   display: flex;
+   justify-content:center;
+   background-color: #292C32;
+   width: 100%; height: 200px;
+   margin-top: 20px;
+}
+
+
+.ft_tel{
+   width:400px;
+   color:white;
+   padding-top: 50px;
+}
+.ft_center{
+   padding:50px;
+   width:400px;
+   
+}
+.ft_center a{
+   font-size: 5px;
+   color: white;
+   margin-bottom: 10px;
+}
+li{ list-style-type: none;  }
+.adress{
+   width:400px; margin-top : 10px;
+   color:white; line-height : 1.8;
+   font-size: 5px;
+}
+.end_logo{
+   width:400px;
+}
+.end_logo img{
+   padding-top: 50px;
+   
+}
+.number{
+   font-weight: bold;
+}
+
+.ft_2{
+	width: 1200px; height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.aline{
+	color: white; margin: 0px 5px;
+}
+
+.ft_tel h5{
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.number{
+	font-size: 30px;
+	font-weight: bold;
+}
