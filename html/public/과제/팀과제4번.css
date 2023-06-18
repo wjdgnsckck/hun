@@ -113,23 +113,25 @@ a:hover{   /* 식별자 : hover{}해당 요소에 마우스를 올렸을때*/
          /* 팝업  */
 #popup_wrap{ /* 팝업창 전체구역 */
    position: fixed;
-   right: 0px; top:30%; /* 오른쪽 가운데 */
-   height: 311PX;
-   border: none;
+   right: 20px; top:30%; /* 오른쪽 가운데 */
+   height: 329PX;
+   border: solid 1px  #852123;;
 }
 
 .popup_item li{ height: 53px; } /* 팝업 아이콘 사이즈 */
 /* */
 .popup_item{ position: relative; 
-   width: 70px; height: 66px;
-   background-color: #f7f7f7;
+   width: 70px; height: 58px;
    padding: 13px;
    border: none;
    text-align: center; /* 가로 정렬 */
          }
 .popup_item2{
-   width: 96px; height: 43px;
-   background-color:#852123;   
+   width: 96px; height: 41px;
+   background-color:#852123; 
+   border-bottom-left-radius: 3px;  
+   border-bottom-right-radius: 3px; 
+   margin-top:10px;
 }
 .popup_item2 img{
    padding-top: 5px;
@@ -141,6 +143,7 @@ a:hover{   /* 식별자 : hover{}해당 요소에 마우스를 올렸을때*/
 }
 .popup_item2_son{
    margin: 0 auto;
+   
 
 }
 
@@ -152,15 +155,25 @@ a:hover{   /* 식별자 : hover{}해당 요소에 마우스를 올렸을때*/
    font-size: 12px;
 }
 .sub_item2{
-   
+   font-weight : bold;
    text-align: center;
    color: white;
+   border-bottom-left-radius: 10px;
+   
 }
 
 #pop{
   padding-bottom: 20px;
  }
  
- .pop_color{
-  border: solid 2px #852123;
- }
+ 
+
+
+.popup_item3{ position: relative; 
+   width: 70px; height: 86px;
+   padding: 13px;
+   border: none;
+   text-align: center; /* 가로 정렬 */
+   
+}
+
