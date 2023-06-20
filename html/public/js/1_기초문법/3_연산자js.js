@@ -189,8 +189,8 @@ console.log('등급: '+ 등급)
    			// a=5 b=4 c=2		= 합계 정수 d
    			 
 //문제9
-let 정수4=prompt('정수4:')
-let 정수5=prompt('정수5:')
+let 정수4=Number(prompt('정수4:'))
+let 정수5=Number(prompt('정수5:'))
 let 큰수= 정수4>정수5 ? 정수4:정수5
 console.log('큰수:'+큰수)
 //문제10
