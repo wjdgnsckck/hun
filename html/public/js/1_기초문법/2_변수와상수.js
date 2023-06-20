@@ -101,6 +101,13 @@ console.log('입력받은 문자 : '+입력2)
 
 
 
+let 정수a=prompt('정수a:')
+let 정수b=prompt('정수b:')
+let 정수c=prompt('정수c:')
+let max = 정수a
+max = max< 정수b ?정수b:정수a
+max = max<정수c ? 정수c:정수a
+console.log('최고값:'+max)
 
 
 
