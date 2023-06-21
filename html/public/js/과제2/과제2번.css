@@ -1,1 +1,37 @@
-@charset "UTF-8";
+*{padding: 0px; margin: 0px;}
+li{list-style-type: none;}
+
+#wrap{
+	margin: 0 auto;
+	height: 1100px;
+	width: 1200px;
+	text-align: center;
+}
+
+#form{
+	height: 100%;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.left_fm{
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	margin-bottom: 20px;
+	padding-left: 100px;
+}
+
+
+.right_fm{
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	margin-bottom: 20px;
+	padding-right: 100px;
+}
+.id, .pw, .log_id , .log_pw, .create, .log_in{
+	margin: 10px 0px;
+	height: 30px;
+}
