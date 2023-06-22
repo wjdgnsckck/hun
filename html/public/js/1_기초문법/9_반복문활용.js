@@ -113,13 +113,66 @@ for( let i = 1; i<=line6 ; i++){
 	
 	}
 	//별
-	for(let s = 1 ; s<s*(5-i); s++){
+	for(let s = 0 ; s<=(2*line6)-(i*2); s++){
+	
 		output+='*'
 	}
 	output+=`\n`
 }
 console.log(output)
 
+
+// 문제9)입력받은 줄 수 만큼 * 출력(ex10)
+console.log('-----------ex9--------');
+output=''
+let line7 =prompt('문제9:')
+for(let i = 1; i<=line5 ; i++){
+	//공백
+	for(let b=1 ; b<=line5-i ; b++){output+=' '}
+	//별
+	for(let s=1 ; s<=i*2-1; s++){output+='*'
+}
+
+	//줄바꿈
+	output+=`\n`
+	
+}
+for( let i = 1; i<=line6 ; i++){
+	//공백
+	for(let b = 1; b<=i-1 ; b++){
+		output+=' '
+	
+	}
+	//별
+	for(let s = 0 ; s<=(2*line6)-(i*2); s++){
+	
+		output+='*'
+	}
+	output+=`\n`
+}
+console.log(output)
+//문제 10)입력받은 줄 수 만큼 * 출력(ex5)
+console.log('-----------ex10--------');
+output=''
+const size = 5; // x 표시의 크기를 조정할 수 있습니다.
+
+// x 표시를 만드는 함수
+function createX(size) {
+  for (let i = 0; i < size; i++) {
+    let row = '';
+    for (let j = 0; j < size; j++) {
+      if (i === j || j === size - i - 1) {
+        row += '*'; // x 표시 위치에는 '*' 문자를 추가합니다.
+      } else {
+        row += ' '; // 다른 위치에는 공백을 추가합니다.
+      }
+    }
+    console.log(row);
+  }
+}
+
+// createX 함수를 호출하여 x 표시를 출력합니다.
+createX(size);
  
  
  
