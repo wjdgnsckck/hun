@@ -11,6 +11,7 @@ function create_id(){	//f start
 	let Id=idInput.value						//idInput값 Id에 저장
 	let pwInput = document.querySelector('.pw')	//(class)pw 입력값 pwInput에 저장	
 	let Pw=pwInput.value						//PwInput값 Pw에 저장
+		
 	
 	if(Id==''||Pw==''){		//if문 사용해서 회원가입 이벤트 구현  첫번째 1.if start
 		if(Id==''){ //if안에 2.if start
@@ -32,8 +33,8 @@ function create_id(){	//f start
 		console.log('create_Pw='+Pw)		//콘솔 pw 출력
 		아이디.push(Id)						//아이디배열에 Id 입력(push)
 		비밀번호.push(Pw)						//비밀번호배열에 Pw 입력(push)
-		idInput.value=''					//id중복값제거
-		pwInput.value=''					//pw중복값제거
+		idInput.value=' '					//id초기화
+		pwInput.value=' '					//pw초기화
 	}		//if
 
 	
@@ -46,8 +47,8 @@ function login(){		//로그인 이벤트 f start
 	let PwInput=document.querySelector('.log_pw')	//로그인 비밀번호 입력 데이터 PwInput 저장
 	let loginPw = PwInput.value						//PwInput 값 loginPw 저장
 	
-	let indexId=아이디.indexOf(loginId)
-	let indexPw=비밀번호.indexOf(loginPw)
+	let indexId=아이디.indexOf(loginId)				//id인덱스 찾기
+	let indexPw=비밀번호.indexOf(loginPw)				//pw인덱스 찾기
 	
 	if(indexId != -1 && indexPw != -1 ){			//Id와Pw 둘다 있을때
 		if(indexId==indexPw){						//둘다 일치하면

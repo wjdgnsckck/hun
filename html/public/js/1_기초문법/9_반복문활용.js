@@ -154,7 +154,48 @@ console.log(output)
 //문제 10)입력받은 줄 수 만큼 * 출력(ex5)
 console.log('-----------ex10--------');
 output=''
-const size = 5; // x 표시의 크기를 조정할 수 있습니다.
+const star=1;
+let line8 =prompt('문제10:');
+for(let i = 1 ; i<=line8 ; i++){
+	for(let b=0 ; b<=i-1; b++){
+			output=' '
+	}
+	for(let s=1 ; s<=star ; s++){
+		output='*'
+	}
+	output=`\n`
+}
+
+console.log(output)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const size = 5; // x 표시의 크기를 조정할 수 있습니다.
 
 // x 표시를 만드는 함수
 function createX(size) {
@@ -173,7 +214,7 @@ function createX(size) {
 
 // createX 함수를 호출하여 x 표시를 출력합니다.
 createX(size);
- 
+ */
  
  
  
