@@ -29,7 +29,7 @@ function processOrder(menuNumber) {
 }
 
 console.log('====장바구니====')
-let submenu= userInputchoice.valueOf
+let submenu= userInputchoice
 listBox.push(submenu)
 console.log(listBox)
 
