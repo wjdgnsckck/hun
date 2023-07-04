@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* css기본값 제거 */
+
+
+*{
+	padding: 0px;margin: 0px;	
+	font-family: '나눔 고딕'
+}
+
+li{list-style-type: none;}
+a{color: black; text-decoration: none;}
+/* 페이지 사이즈 :1200px;*/
+
+/* 외부폰트 */
+.head_menu{
+	
+	display: flex;/*하위 요소 가로배치  */
+	justify-content: space-around;/* 가로배치 */
+	
+}

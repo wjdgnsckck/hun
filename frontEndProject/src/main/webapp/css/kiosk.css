@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/*키오스크 전체구역*/
+
+.kioskwrap{
+	font-family : '맑은 고딕';
+	width: 700px; 
+	margin: 50px auto;
+
+	
+}
+
+.himg{
+	width: 100%;
+	
+	object-fit:cover;	/* 비율 맞추기 */
+	
+}
+.categorymenu{
+	display: flex;				/* 하위 요소들의 가로배치 */
+	justify-content: space-around;		/* 가로 배치 방법  */
+	padding-top: 2px;
+}
+/* 선택 안된 카테고리 */
+
+
+.categorymenu li{
+	color: #8e8e8e;
+}
+
+/*선택 된 카테고리*/
+.categoryselect{
+	color: red !important;		/* 위에서 이미 color 속성 사용했으니 중복  */
+	/* 1. id 별도로 해서 속성적용 2.style속성3.!important */
+	border-bottom: 5px solid red;
+	padding-bottom: 3px;
+}
+
+/* 제품들 출력 구역*/
+.productbox{
+	height: 450px;				/*height 생략시 기본값 auto  */
+	display: flex;
+    flex-wrap: wrap;
+	overflow-y:  scroll;   /* 만약에 자식요소들이 현재 구역보다 사이즈가 더 커지면 */
+}								/*hidden, auto ,scroll  */		/* overflow-x(y)  */
+/*제품 1개  */	
+		/* 전체 가로사이즈 : width : 700px / 가로당 제품수 */
+.product{width: 30%; text-align: center; margin: 5px 10px 30px 10px; }
+.product img{width: 100%;}
+.product  .pprice{color: red;}
+
+/* 카트 출력 구역 */
+.cartbox{
+	height: 250px;
+	background-color: #eeeeee;
+	position: relative;		/*버튼들의 구역 위치 잡기  */
+}
+	/* 카트 상단 부분 */
+.carttop{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 50px ;
+}
+
+/* 카드내 제품수 원형 */
+.ccount{
+	background-color: red;
+	width: 30px;		/* 사이즈가 적용 ???? span 은 inline이 기본값이므로 원래 적용x*/
+	display:inline-block;							/* inline은 값 적용x block은 한줄차지 , inline은 한줄차지x값 적용*/
+	border-radius: 15px;
+	font-size: 12px;
+	color: white;	text-align: center; padding: 4px;
+}
+
+.ctotal{color: red;}
+
+
+/* flex 는 자식 요소들이 만약에 사이즈가 더 크면 자동으로 자식요소들의 사이즈를 줄인다! 그래서 방지[최소사이즈]  */
+.cartbottom{	
+display: flex; 
+overflow-x:scroll; }						/*가로 스크롤:overflow-x  */
+
+.citem{
+	min-width: 20%;			/* 4개를 한줄에 표기 */				/*max-width , min-width, max-height 	min-height */
+	background-color: white;
+	padding: 10px;
+	margin:5px 20px;
+	position: relative;	/*x 버튼의 기준점  */
+}
+/*카트 개별 취소 버튼  */
+
+.icencel{position: absolute; right: 10px; top: 10px;}
+
+.iname{width: 80%; height: 50px;}
+
+.iprice{color: red;}
+/* 버튼구역 설정하기  */
+.cartbtn{
+	display: flex;
+	position: absolute;
+	/* 가장 가까운 상위 요소의 postion:relative;기준점/ 만일 상위요소내 relative가없으면 body따라간다. */
+	border: 0px;			/*최하단에 배치  */
+	width: 100%;
+	bottom: 0px;
+}
+
+.cartbtn button{
+	width: 50%;
+	font-size: 20px;
+	color: white;
+	border: none;
+	padding: 20px;
+}
+
+.cancelbtn{background-color: black;}
+.orderbth{background-color: red;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

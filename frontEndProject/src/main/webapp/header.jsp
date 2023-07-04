@@ -1,21 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
+	<head>
+		<link href="/frontEndProject/css/index.css" rel="stylesheet">
+	</head>
+
 
 	<h4>헤더입니다.</h4>
-	<ul>
+	<ul class="head_menu">
 			<li><a href="/frontEndProject/index.jsp">home</a></li>
 			<li><a href="/frontEndProject/boder/list.jsp">게시판</a></li>
 			<li><a href="/frontEndProject/kiosk/kiosk.jsp">키오스크</a></li>
 			<li><a href="/frontEndProject/calendar/calender.jsp">캘린더</a></li>
 	
 	</ul>
+	
+	<!--js 호출  -->
+	<script src="/frontEndProject/js/index.js" type="text/javascript"></script>
 	
 	<!-- 
 		HTTP 상태 404 – 찾을 수 없음
@@ -37,5 +38,3 @@
 			현재 파일 기준 [  ]
 		
 	 -->
-</body>
-</html>
