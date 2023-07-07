@@ -1,7 +1,7 @@
 console.log('js시작')
 
 
-das
+
 //------------------------------샘플데이터-------------------
 //1.광고이미지 변경			//1. 광고이미지 여러개 = 배열
 let bimgList=[	'himg1.png'	,'himg2.png','himg3.jpg','himg4.png','himg5.png'];

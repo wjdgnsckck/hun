@@ -40,7 +40,7 @@
 						<div class="pprice">13,000원</div>
 						<!--제품 가격  -->
 					</div>
-s
+
 				</div>
 
 
