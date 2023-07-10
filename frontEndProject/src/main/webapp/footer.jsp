@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 
 
-	<h4>푸터입니다.</h4>
+
 	

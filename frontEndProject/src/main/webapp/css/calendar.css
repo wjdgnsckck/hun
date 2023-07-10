@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.calwrap{
+	width: 1200px; margin: 50px auto;
+}
+/* 캘린더 상단 메뉴 */
+.caltop{
+	display: flex;  	justify-content: center;
+	align-items: center;
+}
+
+/* 캘린더 상단 메뉴 버튼 틀*/
+
+.caltop button{
+	background-color: white;
+	border: none;
+	font-size: 45px; color: gray;
+	cursor: 	pointer;										/* 커서(마우스)모양 설정 */
+}
+/* 캘린더 상단 연도/월 표시*/
+.caltop h3{
+	margin: 0 20px;
+	font-size: 28px;
+}
+
+/* 캘린더 (달력) 구역*/
+.calendar{
+	display: flex;
+	flex-wrap: wrap;		/* 하위 요소의 사이즈가 부족할때 자동 줄바꿈 */
+}
+/* 캘린더 한개 구역에 하나의 박스  */
+.calendar div{
+	width: 14%; /* 100% /7 = 14.2 ,0.2는 여백  */
+	border: 1px solid #eeeeee; height: 100px;
+	text-align: center;
+}
+
+.week{
+	height: 30px !important;	/* css 중복/충돌속성시 최우선순위*/ background-color: #e8e8e8;	
+	font-size: 18px;
+}
+
+.sunday{
+	background-color: red; color: white;
+}
+
+.modalwrap{
+	position: fixed; width: 100%; height: 100%;
+	top:0px; background-color: rgb(0,0,0,0.5);		/*rgb : 0~255 색상조합  / rgba : 투명도 포함 */
+	display: none; justify-content: center;
+	align-items: center;
+	/* display 이용한 모날 끄기(none) 키면 flex  */
+}
+
+/* 모달 내용 박스 구역  */
+.modal{
+	background-color: white;
+	width:500px; height: 300px;
+	padding: 10px; border-radius: 30px;
+}
+
+
+/* 일정 출력 */
+.content{
+	background-color: red; color: white;
+	margin: 3px; padding: 3px; font-size: 10px;
+	display: block;	/* span의 기본값은 inline 사이즈 적용x */
+	/* 만약에 해당 구역보다 내용물(텍스트)이 더 커지면 ... 해서 잘림*/
+	overflow: hidden;	/*넘치면 넘친 부분 숨기기 */
+	white-space: nowrap; /* 만약에 텍스트가 커지면 자동 줄바꿈 해제   */
+	text-overflow: ellipsis;	/*ellipsis : ... 표시  */
+}
+
