@@ -10,6 +10,7 @@ public class answar {
 	 문제4.
 	 		타입 int		double
 	 	변수이름 age		price
+	 	리터럴 : 10		 3.14
 	 문제5. 3번
 	 문제6. 3번
 	 문제7. 6번
