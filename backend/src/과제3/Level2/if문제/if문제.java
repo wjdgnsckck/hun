@@ -15,16 +15,17 @@ public class if문제 {
 		int min=0;
 
 		if(정수>정수2) {
-			max=정수; min=정수2;
+			max=정수 ; min=정수2;
 			System.out.println("큰수:"+max);
 			System.out.println("작은수:"+min);
-			if(정수<정수2) {
-				max=정수2 ;min=정수;
-				System.out.println("큰수:"+max);
-				System.out.println("작은수:"+min);
-				
-			}
+		}if(정수<정수2) {
+			max=정수2; min=정수;
+			System.out.println("큰수:"+max);
+			System.out.println("작은수:"+min);
 		}else {System.out.println("같은수입니다.");}
+		
+		
+		
 		
 		/* -------문제2----- */
 		System.out.println("정수3를입력하시오"); int 정수3=scanner.nextInt();
@@ -33,12 +34,42 @@ public class if문제 {
 		int max2=정수3;
 		if(max2<정수4) {
 			max2=정수4;
-		}else if(max2<정수5) {max2=정수5;}
+		}
+		if(max2<정수5) {max2=정수5;}
 		
 		System.out.println("가장큰수는:"+max2);
-		
+		//오답노트 (if else if 사용시 if값을 만족하면 else if를 가지않고 바로 if문을 빠져나옴 그러므로 if if 따로 사용해야한다.
 		/* -------문제3----- */
+		System.out.println("정수10를입력하시오"); int 정수10=scanner.nextInt();
+		System.out.println("정수11를입력하시오"); int 정수11=scanner.nextInt();
+		System.out.println("정수12를입력하시오"); int 정수12=scanner.nextInt();
+		int max3,min2,mid;
+		//최대값 구하기
+		if(정수10 >= 정수11 && 정수10 >=정수12) {
+			max3=정수10;
+		}else if(정수11>= 정수10 && 정수11>=정수12) {
+			max3=정수11;
+		}else {max3=정수12;}
+		//최소값 구하기
+		if(정수10<=정수11&&정수10<=정수12) {
+			min2=정수10;
+		}else if(정수11<=정수10&&정수11<=정수12) {
+			min2=정수11;
+		}else {min2=정수12;}
+		//중간값 구하기
+		mid=정수10+정수11+정수12-max3-min2;
+		//오름차순 정렬
+		System.out.println("오름차순 정렬:");
+		System.out.println(min2);
+		System.out.println(mid);
+		System.out.println(max3);
 		
+		
+		//내림차순 정렬
+		System.out.println("내림차순 정렬:");
+		System.out.println(max3);
+		System.out.println(mid);
+		System.out.println(min2);
 		/* -------문제4----- */
 		System.out.println("점수를입력하시오"); int 정수7=scanner.nextInt();
 		if(정수7>=90) {
