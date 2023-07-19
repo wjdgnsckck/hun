@@ -17,10 +17,8 @@ public class 과제4_1_예출금 {
 			int ch = scanner.nextInt();
 			
 			/* 문제풀이 위치 */
-			String account2 = " ";	//입력 계좌번호 저장
-			short password2=0;		//입력 비밀번호 저장
-			int pay2=0;				//입력 금액값 저장
-			if(ch==1) {System.out.print(">>>예금할 계좌번호:"); account2=scanner.next();
+			
+			if(ch==1) {System.out.print(">>>예금할 계좌번호:"); String account2=scanner.next();
 							if(account2.equals(account)) {System.out.print(">>>예금할 금액:"); int pay=scanner.nextInt();
 								balance+=pay; account2="";} 
 								else {
@@ -28,10 +26,10 @@ public class 과제4_1_예출금 {
 									account2="";}
 							
 			}
-			if(ch==2) {System.out.print(">>>출금할 계좌번호"); account2 =scanner.next();
+			if(ch==2) {System.out.print(">>>출금할 계좌번호"); String account2 =scanner.next();
 							if(account2.equals(account)) {
-								System.out.print(">>>계좌 비밀번호"); password2=scanner.nextShort();
-								if(password2==password) {System.out.print(">>>출금할금액"); pay2=scanner.nextInt();
+								System.out.print(">>>계좌 비밀번호"); short password2=scanner.nextShort();
+								if(password2==password) {System.out.print(">>>출금할금액"); int pay2=scanner.nextInt();
 									if(pay2>balance) {System.out.println(">>>잔액부족:"+(pay2-balance)); pay2=0;}
 									else { balance-=pay2 ;  System.out.println(">>>출금후 금액:"+balance); pay2=0;}
 								}else {System.out.println(">>>비밀번호 오류");}

@@ -1,4 +1,4 @@
-package 과제3.Level2.ex1;
+package 과제.과제3.ex1;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;

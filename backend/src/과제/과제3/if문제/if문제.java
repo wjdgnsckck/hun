@@ -1,4 +1,4 @@
-package 과제3.Level2.if문제;
+package 과제.과제3.if문제;
 
 import java.util.Scanner;
 
