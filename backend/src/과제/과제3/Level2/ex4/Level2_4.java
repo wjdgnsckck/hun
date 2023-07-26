@@ -1,4 +1,4 @@
-package 과제.과제3.ex4;
+package 과제.과제3.Level2.ex4;
 
 import java.time.LocalDateTime;
 import java.util.Random;

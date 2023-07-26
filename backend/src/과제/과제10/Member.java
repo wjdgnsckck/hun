@@ -16,7 +16,8 @@ public class Member {
 	
 	
 	public void 회원가입(){
-		Member me=new Member();
+		Member me=new Member();	//내부 객체 생성
+		
 		System.out.println("아이디:"); 					String id=scanner.next();
 		System.out.println("비밀번호:");					String pw=scanner.next();
 		System.out.println("이름:");						String name=scanner.next();
