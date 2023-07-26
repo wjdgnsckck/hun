@@ -67,10 +67,13 @@ public static void main(String[] args) {
 					
 					if( basket > 0 ) { // 바구니에 수량이 있는경우만 출력 
 						System.out.printf( "%10s %10s %10s \n" , name ,  basket , basket*price );
+						
 					}
+				
 				}
 			}
 			/* ----------- */
+		
 			
 		} // while end 
 	} // main end 
