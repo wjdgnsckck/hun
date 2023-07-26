@@ -18,24 +18,15 @@ public class MemberSys {
 			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기    선택> ");
 			int ch = sc.nextInt(); 
 			
-			if( ch == 1 ) {
-			
-			Member member = new Member();
-			member.회원가입();
-			System.out.println("회원가입 완료");
-			
-			}
-			else if( ch == 2 ) { 로그인 (); } 
-			else if( ch == 3 ) { 아이디찾기 (); } 
-			else if( ch == 4 ) { 비밀번호찾기 (); } 
+			if( ch == 1 ) {Member member = new Member(); member.회원가입();}
+			else if( ch == 2 ) { Member member=new Member(); member.로그인(); } 
+			else if( ch == 3 ) { Member member=new Member();member.아이디찾기(); } 
+			else if( ch == 4 ) { Member member=new Member();member.비밀번호찾기();} 
 			
 		} // w e 
 	}
 	
-	static void 회원가입 () { }
-	static void 로그인 () { }
-	static void 아이디찾기 () { }
-	static void 비밀번호찾기 () { }
+	
 	
 }
 /*
