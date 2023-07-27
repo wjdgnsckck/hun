@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public class Member {
 	Scanner scanner = new Scanner(System.in);
+	boolean found=false;
 	//필드
 	static Member[] memberList = new Member[100];
 	String id="";
@@ -47,11 +48,12 @@ public class Member {
 				memberList[i]=me;  System.out.println("회원가입 완료");
 				break;}//if end
 			}	//for end
+		System.out.println(Arrays.toString(memberList)  );
 		}
 	  public void 로그인() {
 		System.out.println("아이디:");			String id=scanner.next();
 		System.out.println("비밀번호:");			String pw=scanner.next();
-		boolean found=false;
+		
 		for(int i = 0 ; i<memberList.length; i++) {
 			if(memberList[i] !=null) {
 				if(memberList[i].id.equals(id)&&memberList[i].pw.equals(pw)) {
