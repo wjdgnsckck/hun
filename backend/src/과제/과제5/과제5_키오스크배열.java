@@ -31,7 +31,7 @@ public static void main(String[] args) {
 				System.out.println("배열내 데이터 개수 : " + 재고관리.length );
 				System.out.println("배열내 특정(인덱스)데이터 호출 : " + 재고관리[0] ); 
 		 */
-		
+		int pay=0;
 		/* ----------- */
 		
 		while(true) {
@@ -65,9 +65,30 @@ public static void main(String[] args) {
 					int price = Integer.parseInt( 재고관리[i].split(",")[2] );
 					String name = 재고관리[i].split(",")[3];
 					
+					
 					if( basket > 0 ) { // 바구니에 수량이 있는경우만 출력 
 						System.out.printf( "%10s %10s %10s \n" , name ,  basket , basket*price );
 						
+						 pay += basket*price;
+						System.out.println("총가격:"+pay);
+						//결제처리
+						System.out.println("----------------------");
+						System.out.println("1.결제 2.취소");int ch2=scanner.nextInt();
+						if(ch2==1) {System.out.println("안내 금액 투여");int pay2=scanner.nextInt();
+							if(pay2>=pay) {
+								System.out.println("안내) 잔액:"+(pay2-pay));basket=0; pay=0;
+							}else {System.out.println("안내)잔액부족 초기화면으로 돌아갑니다.");
+							basket=0; pay=0;
+							int stock = Integer.parseInt(재고관리[i].split(",")[0]);
+							stock += basket;
+							}
+						}
+						else if(ch2==2) {
+							System.out.println("안내)취소 초기화면으로 돌아갑니다.");
+							basket=0; pay=0;
+							int stock = Integer.parseInt(재고관리[i].split(",")[0]);
+							stock += basket;
+						}
 					}
 				
 				}
