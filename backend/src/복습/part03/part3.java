@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class part3 {
     public static void main(String[] args) {
         String[] 재고관리 = { "10,0,300,콜라" , "3,0,200,환타" , "2,0,100,사이다"};
-        int pay=0;
+        int pay=0;	//총가격 구하는 변수
        Scanner sc=new Scanner(System.in);
         
         while(true) {
@@ -13,15 +13,16 @@ public class part3 {
         	System.out.println("-----------------메뉴--------------");
         	System.out.println("1.콜라[300] 2.환타[200] 3.사이다[100] 4.결제");
         	System.out.println(">>>>>>>>>>선택"); int ch=sc.nextInt();
-        	if(ch==1||ch==2||ch==3) {
-        		String product= 재고관리[ch-1];
-        		System.out.println(ch+1+"번 제품"+product);
+        	if(ch==1||ch==2||ch==3) {	//1번 ,2번 ,3번 선택시
+        		String product= 재고관리[ch-1];			//선택번호-1=인덱스 번호 값 product 저장
+        			//
         		int stock=Integer.parseInt(product.split(",")[0]);
         		int basket=Integer.parseInt(product.split(",")[1]);
         		int price=Integer.parseInt(product.split(",")[2]);
         		String name=product.split(",")[3];
+        		
         		if(stock>0) {
-        		stock--; basket++; System.out.println(name+"바구니에담았습니다.");
+        		stock--; basket++; System.out.println("안내)"+name +"담았습니다.");
         			pay+=price;
         		}else {System.out.println("재고부족");}
         		재고관리[ch-1]=stock+","+basket+","+price+","+name;
