@@ -19,7 +19,7 @@ public class Korean {
 				this.name= name; this.ssn=ssn;
 				
 			}
-				//3. 매개변수3개 인 생성자	[1. 매개변수의 개수가 다를경우 ]
+				//3. 매개변수3개 인 생성자	[1. 매개변수의 개수가 다를경우 ]ㅁ
 			public Korean(String name , String ssn , String naion) {}
 				
 				//4.매개변수2개 인 생성자	[2. 매개변수의 타입이 다를경우]
