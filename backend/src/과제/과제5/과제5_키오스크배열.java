@@ -43,7 +43,7 @@ public static void main(String[] args) {
 			/* 문제풀이 위치 */
 			if( ch == 1 || ch == 2 || ch==3  ) {	// 콜라 메뉴선택번호 = 1  // 콜라가 저장된 배열의 인덱스 = 0
 				// 1. 배열변수명 호출 
-				String product = 재고관리[ch-1];	
+				String product = 재고관리[ch-1];	//인덱스로 호출해서 변수에담기
 					System.out.println( ch+1 + " 번 제품 : " + product );
 				// 2. 배열내 데이터[문자열] 분리
 				int stock = Integer.parseInt( product.split(",")[0] );
