@@ -18,7 +18,7 @@ public class 과제5_키오스크배열파일처리 {
 			/* ------------------------------- 프로그램의 필용한 객체 및 변수들   ---------------------------- */
 			Scanner scanner = new Scanner(System.in); // 입력객체 
 			String filePath = "./src/과제/과제5/재고파일.txt";	// 파일경로
-			FileOutputStream fileOutputStream = new FileOutputStream( filePath ,true); // 파일출력객체
+			FileOutputStream fileOutputStream = new FileOutputStream( filePath,true); // 파일출력객체 true 있으면 이어쓰기 없으면 새로쓰기
 			FileInputStream fileInputStream = new FileInputStream( filePath ); // 파일입력객체
 			File file = new File( filePath );	// 파일정보객체 ( 용량 , 경로 , 파일명 등등 ) 메소드 제공 
 			
