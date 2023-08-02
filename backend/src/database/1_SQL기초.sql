@@ -104,6 +104,10 @@
                     longtext (4G)
 				6.논리
 					boolean(1)
+                    
+				-제약조건
+					1.pr : primary key(pk필드명)
+                    2.fk : foreign key(fk필드명) references pk테이블명(pk필드명)[선택옵션]
             
 */
 /* ------------ 데이터베이스 만들기 -------------- */
@@ -193,10 +197,81 @@ select * from member;
         view(최대 21억정도)
         datetime(날짜/시간)
 */
-drop database if exists sqldb1web2;
+drop database spldb1web2;
 create database spldb1web2;
-use sqldb1we2;
+use spldb1web2;
 drop table if exists board;
 create table board( no int , title varchar(100) , content longtext, view int , datetime datetime
 );
 select * from board;
+/*
+	   문제3 : 
+      1. 웹개발 하는데 DB저장소 'sqldb2web1' 이름으로 DB 생성
+      2. 해당 db에 memberboard 테이블 생성
+            회원번호      ( 필드명 : mno      타입 : 최대 21억정도 )
+			회원아이디      ( 필드명 : mid      타입 : 문자열 최대 20 )
+			회원비밀번호    ( 필드명 : mpw      타입 : 문자열 최대 20 )
+            게시물번호    ( 필드명 : bno        타입 : 최대 21억정도 )
+            게시물제목      ( 필드명 : btitle    타입 : 문자열 최대 100 )   
+            게시물내용    ( 필드명 : bcontent    타입 : 문자열 최대 6만5천 이상 )
+            게시물조회수   ( 필드명 : bview       타입 : 최대 21억정도 )
+            게시물작성일    ( 필드명 : bdate       타입 : 날짜/시간 )
+*/
+drop database if exists sqldb2web1;
+create database sqldb2web1;
+use sqldb2web1;
+drop table if exists memberboard;
+create table memberboard( 
+mno int, mid varchar(20), 
+mpw varchar(20), bno int , 
+btitle varchar(100) ,
+bcontent longtext ,
+ bview int ,
+ bdate datetime
+);
+select * from memberboard;
+use sqldb2web1;
+drop table if exists memberboard2;
+create table memberboard2( 
+mno int, 
+mid varchar(20),
+ mpw varchar(20)
+);
+drop table if exists memberboard3;
+create table memberboard3(  bno int ,
+btitle varchar(100) 
+,bcontent longtext , 
+bview int ,
+bdate datetime
+);
+use sqldb2web1;
+drop table if exists member2;
+create table member2(
+mno int, 
+mid varchar(20),
+ mpw varchar(20),
+ primary key(mno)
+ );
+ drop table if exists board2;
+ create table board2(
+ bno int ,
+btitle varchar(100) 
+,bcontent longtext , 
+bview int ,
+bdate datetime,
+mno_fk int,
+foreign key(mno_fk)references member2(mno)
+ );
+drop database if exists sqldb2sys;
+create database sqldb2sys;
+use sqldb2sys;
+drop table if exists category;
+create table category(
+cno int , cname varchar(10),
+primary key(cno)
+);
+drop table if exists product;
+ create table product(
+ pno int , pname varchar(20) , pprice int,
+ cno int, foreign key(cno)references category(cno)
+ );
