@@ -32,8 +32,9 @@ public class MemberSys {
 		Member member =new Member(inputId, inputPw, inputName, inputPhone, age);
 		for(int i = 0 ; i<memberlist.length;i++) {
 			if(memberlist[i]==null) {System.out.println("안내) 회원가입 성공"); memberlist[i]=member;break;}
-			else {System.out.println("회원가입 실패");}
+			
 		}
+		
 	}
 	static void 로그인() {
 		System.out.println("-------로그인-------");
@@ -42,11 +43,11 @@ public class MemberSys {
 		for(int i = 0 ; i<memberlist.length ; i++) {
 			if(memberlist[i]!=null&&memberlist[i].id.equals(id)&&
 					memberlist[i].pw.equals(pw)) {
-				logic=i;
+				logic=i; break;
 			}
 		}//for end
 		if(logic>=0) {System.out.println("안내) 로그인 성공");}
-		else {System.out.println("안내)로그인 실패");logic=-1;}
+		else {System.out.println("안내)로그인 실패");}
 	}
 	static void 아이디찾기() {
 		System.out.println("----------아이디 찾기----------");
@@ -60,8 +61,8 @@ public class MemberSys {
 			}
 			
 		}
-		if(logic>=0) {System.out.println("등록된 아이디:"+findid) ;findid="";logic=-1;}
-		else {System.out.println("등록된아이디가없습니다."); findid="";logic=-1;}
+		if(logic>=0) {System.out.println("등록된 아이디:"+findid) ;}
+		else {System.out.println("등록된아이디가없습니다."); }
 		}
 	static void 비밀번호찾기() {
 		System.out.println("------------비밀번호 찾기----------");
@@ -74,8 +75,8 @@ public class MemberSys {
 			}
 			
 		}//for end
-		if(logic>=0) {System.out.println("안내) 회원님의 비밀번호:"+password); password=""; logic=-1;}
-		else {System.out.println("안내) 등록된 비밀번호가 없습니다.") ;password=""; logic=-1;;}
+		if(logic>=0) {System.out.println("안내) 회원님의 비밀번호:"+password);}
+		else {System.out.println("안내) 등록된 비밀번호가 없습니다.") ;}
 		
 	}
 	
