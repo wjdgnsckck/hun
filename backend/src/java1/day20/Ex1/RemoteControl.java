@@ -25,9 +25,9 @@ public interface RemoteControl {//인터페이스 선언
 		
 		//java 버전 9 부터 사용이 가능하다!!
 		//5. private 메소드			: 디폴트메소드 안에서만 호출 가능
-		private void defaultCommon() {System.out.println("디폴트메소드");}
+		//private void defaultCommon() {System.out.println("디폴트메소드");}
 		//6. private 정적메소드			: 디폴트메소드 , 정적메소드 호출 가능
-		private static void staticCommon() {System.out.println("정적메소드");}
+		//private static void staticCommon() {System.out.println("정적메소드");}
 }
 
 

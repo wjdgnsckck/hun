@@ -1,10 +1,13 @@
 package 과제.과제11강사님버전.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.mysql.cj.protocol.Resultset;
 
+import 과제.과제11강사님버전.controller.BoardController;
 import 과제.과제11강사님버전.controller.MemberController;
+import 과제.과제11강사님버전.model.dto.BoardDto;
 import 과제.과제11강사님버전.model.dto.MemberDto;
 
 // 로그인이 완료된 이후의 화면
@@ -22,10 +25,10 @@ public class LoginPage {
 	
 	// 1 loginMenu		로그인했을 때 메뉴 페이지
 	public void loginMenu() {
-		
+		boardPrint() ;
 		while(MemberController.getInstance().getLoginSession() != 0) {
 			System.out.println("\n\n======= 회원제 커뮤니티 =======");
-			System.out.print("1.로그아웃 2.회원정보 3.글쓰기 선택");
+			System.out.print("1.로그아웃 2.회원정보 3.글쓰기  4. 글조회 선택");
 			
 			try {
 				
@@ -38,7 +41,8 @@ public class LoginPage {
 				if(ch==2) info();
 				
 				if(ch==3) boardWrite();
-
+				
+				if(ch==4) boardView();
 			} catch(Exception e) {
 				System.out.println("경고] 잘못 입력했습니다");
 				sc =  new Scanner(System.in);
@@ -61,7 +65,7 @@ public class LoginPage {
 		//controller -> 
 		
 		//2. 서브메뉴
-		System.out.println("1.비밀번호수정 2.회원탈퇴 3.뒤로가기 선택 :");
+		System.out.println("1.비밀번호수정 2.회원탈퇴 3.뒤로가기  선택 :");
 		int ch =sc.nextInt();
 		if(ch==1) {infoUpdate();}
 		if(ch==2) {infoDelete();}
@@ -94,24 +98,69 @@ public class LoginPage {
 	}
 	// 5 boardWrite		게시물쓰기 페이지
 	public void boardWrite() {
-		
+		System.out.println("\n\n==========board write==========");
+		System.out.println("제목 :"); String title =sc.next();
+		System.out.println("내용 :"); String content =sc.next();
+		boolean result= BoardController.getInstanct().boardWrite(title,content);
+		if(result) {System.out.println("안내] 글쓰기 등록");}
+		else {System.out.println("안내] 글쓰기 실패 : 제목 1~50 필수 입력");}
 	}
-	// 6 boardPrint		모든 게시물 출력
+	// 10 boardPrint		모든 게시물 출력
 	public void boardPrint() {
-		
+		System.out.println("\n\n==========post List==========");
+		ArrayList<BoardDto>result = BoardController.getInstanct().boardPrint();
+		//2. 출력
+		System.out.printf("%-3s %-4s %-19s %-10s %s \n", "no" , "view" , "date", "mid", "title");
+		for(int i = 0 ; i<result.size(); i++) {
+						//리스트.size() : 리스트내 객체수 => length 동일
+			BoardDto dto =result.get(i);
+			System.out.printf("%-3s %-4s %-19s %-10s %s \n", dto.getBno() ,dto.getBview() ,dto.getBdate(), dto.getMid(),
+					dto.getBtitle());
+		}
 	}
-	// 7 boardView		개별 게시물 출력
+	// 11 boardView		개별 게시물 출력
 	public void boardView() {
+		System.out.println("\n\n==========board VIEW==========");
+		//1. 보고자하는 게시물의 게시물번호를 입력받기 [ 식별번호 ]
+		System.out.println("게시물번호 :"); int bno=sc.nextInt();
+		//2. 전달하기
+		BoardDto result = BoardController.getInstanct().boardView(bno);
+		//3. 출력
+		System.out.printf("bno : %3s view :%3s mid : %10s date : %19s  \n",
+		result.getBno(),result.getBview(),result.getMid(),result.getBdate());
+		System.out.printf("title : %s\n",result.getBtitle());
+		System.out.printf("content : %s\n" ,result.getBcontent());
+		//4. 추가메뉴
+		System.out.println("1.뒤로가기 2.수정 3.삭제 선택>"); int ch =sc.nextInt();
+		if(ch==1) {return;}
+		if(ch==2) {boardUpdate(bno,result.getMno()) ; boardPrint() ; }
+		if(ch==3) {boardDelete(bno,result.getMno()) ; boardPrint() ; }
 		
 	}
-	// 8 boardUpdate	게시물 수정
-	public void boardUpdate() {
+	// 12 boardUpdate	게시물 수정[ 게시물번호 식별해서 제목이랑 내용만 수정 - > 로그인된 사람
+	public void boardUpdate(int bno , int mno) {
+		System.out.println("\n\n==========post update==========");
+		sc.nextLine();
+		System.out.println("수정할 제목 :"); String title =sc.next();
+		System.out.println("수정할 내용 :"); String content =sc.next();
+		//2.
+		int result=
+		BoardController.getInstanct().boardUpdate( bno,mno,title,content);
+		if(result==1) {System.out.println("안내] 수정이 완료되었습니다.");}
+		if(result==2) {System.out.println("안내] 글 수정 실패 : 관리자 오류");}
+		if(result==3) {System.out.println("경고] 본인 글만 수정 가능합니다. ");}	
+		if(result==4) {System.out.println("경고] 수정할 제목을 1~50글자 사이로 입력해주세요.");}
+			}
+			
 		
-	}
-	// 9 boardDelete	게시물 삭제
-	public void boardDelete() {
-		
+	
+	// 13 boardDelete	게시물 삭제
+	public void boardDelete(int bno , int mno) {
+		int result=BoardController.getInstanct().boardDelete(bno,mno);
+		if(result==1) {System.out.println("안내] 수정이 완료되었습니다.");}
+		else if(result==2) {System.out.println("안내] 글 삭제 실패 : 관리자 오류");}
+		else if(result==3) {System.out.println("경고] 본인 글만 삭제 가능 합니다.");}
 	}
 	
 	
-}
+}//p end
