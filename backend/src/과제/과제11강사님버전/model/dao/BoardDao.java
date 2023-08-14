@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import 과제.과제11강사님버전.model.dto.BoardDto;
 import 과제.과제11강사님버전.model.dto.MemberDto;
+import 과제.과제11강사님버전.model.dto.MessageDto;
 
 public class BoardDao extends Dao {
 	// 5 boardWrite		게시물쓰기 페이지
@@ -128,7 +129,73 @@ public class BoardDao extends Dao {
 			return false;
 			
 		}
-}
+		// 14. 쪽지보내기
+		public boolean sentMessage(String content,int mno) {
+			try {
+			String sql = "insert post(mno,pcontent)values(?,?);";
+			ps=conn.prepareStatement(sql);
+			System.out.println(mno);
+			ps.setInt(1, mno);
+			ps.setString(2, content);
+			int rs=ps.executeUpdate();
+			if(rs==1) {
+			return true;
+			}
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+			return false;
+			
+		} 
+		
+		//15. 쪽지 확인하기
+		public ArrayList<MessageDto> checkMessage(int mno) {
+			ArrayList<MessageDto> list =new ArrayList<>();
+				try {
+				
+				//String sql = "select * from board order by bdate desc;"; //1. 최신순으로 모든 게시물 호출 //조인사용전 sql 문
+				String sql ="select p.*,m.mid from member1 m natural join post p where mno!=? ;";
+			    ps = conn.prepareStatement(sql);
+			    ps.setInt(1, mno);
+		         rs = ps.executeQuery();
+		         // 5. 여러 개의 레코드 조회 [rs.next() : 다음 레코드 이동(존재하면 true, 존재하지않으면 false)]
+		         while( rs.next() ) {
+		            // 마지막 레코드까지 하나씩 레코드 이동
+		        	 MessageDto messageDto = new MessageDto(
+		                     rs.getInt(1),  rs.getInt(3), 
+		                      rs.getString(4), rs.getString(5),
+		                      rs.getString(7));
+		        	 list.add(messageDto);
+		         }
+		          
+		       
+				
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+			return list;
+		}
+		//16. 답장보내기
+		public boolean reply(int ch,String reply,int mno) {
+			try {
+			String sql = "update post set bno =  ? , preply =? where pno=?; ";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			ps.setString(2, reply);
+			ps.setInt(3, ch);
+			int rs = ps.executeUpdate();
+			if(rs==1) {
+			return true;
+			}
+			}
+			catch (Exception e) {
+			System.out.println(e);
+			}
+			return false;
+		}
+		
+}//c end
 
 /*
  System.out.println(rs);

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java1.day11.Ex_1.B;
 import 과제.과제11강사님버전.model.dao.BoardDao;
 import 과제.과제11강사님버전.model.dto.BoardDto;
+import 과제.과제11강사님버전.model.dto.MemberDto;
+import 과제.과제11강사님버전.model.dto.MessageDto;
 
 public class BoardController {
 	//0. 싱글톤
@@ -48,5 +50,24 @@ public class BoardController {
 			if(result)return 1;
 			else return 2;
 		}
-
+		// 14. 쪽지보내기
+		public boolean sentMessage(String content) {
+		int mno=MemberController.getInstance().getLoginSession();
+		System.out.println(mno);
+		boolean  result= BoardDao.getInstanct().sentMessage(content,mno);
+		if(result)return true;
+		return false;
+	} 
+		//15. 쪽지 확인하기
+		public ArrayList<MessageDto> checkMessage() {
+			int mno=MemberController.getInstance().getLoginSession();
+			return BoardDao.getInstanct().checkMessage(mno);
+		};
+		//16. 답장보내기
+		public boolean reply(int ch, String reply) {
+			int mno=MemberController.getInstance().getLoginSession();
+			boolean result = BoardDao.getInstanct().reply(ch,reply,mno);
+			if(result)return true;
+			else return false;
+		}
 }

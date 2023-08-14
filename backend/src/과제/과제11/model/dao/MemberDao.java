@@ -198,5 +198,6 @@ public class MemberDao extends Dao {
 				
 	}
 	
+	
 	}//c end
 

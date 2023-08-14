@@ -9,6 +9,7 @@ import 과제.과제11강사님버전.controller.BoardController;
 import 과제.과제11강사님버전.controller.MemberController;
 import 과제.과제11강사님버전.model.dto.BoardDto;
 import 과제.과제11강사님버전.model.dto.MemberDto;
+import 과제.과제11강사님버전.model.dto.MessageDto;
 
 // 로그인이 완료된 이후의 화면
 public class LoginPage {
@@ -65,11 +66,12 @@ public class LoginPage {
 		//controller -> 
 		
 		//2. 서브메뉴
-		System.out.println("1.비밀번호수정 2.회원탈퇴 3.뒤로가기  선택 :");
+		System.out.println("1.비밀번호수정 2.회원탈퇴 3.뒤로가기 4.쪽지확인  선택 :");
 		int ch =sc.nextInt();
 		if(ch==1) {infoUpdate();}
 		if(ch==2) {infoDelete();}
 		if(ch==3) {return;}
+		if(ch==4) {checkMessage();};
 		System.out.println();
 		
 	}
@@ -131,10 +133,11 @@ public class LoginPage {
 		System.out.printf("title : %s\n",result.getBtitle());
 		System.out.printf("content : %s\n" ,result.getBcontent());
 		//4. 추가메뉴
-		System.out.println("1.뒤로가기 2.수정 3.삭제 선택>"); int ch =sc.nextInt();
+		System.out.println("1.뒤로가기 2.수정 3.삭제 4.쪽지보내기 선택>"); int ch =sc.nextInt();
 		if(ch==1) {return;}
 		if(ch==2) {boardUpdate(bno,result.getMno()) ; boardPrint() ; }
 		if(ch==3) {boardDelete(bno,result.getMno()) ; boardPrint() ; }
+		if(ch==4) {sentMessage();}
 		
 	}
 	// 12 boardUpdate	게시물 수정[ 게시물번호 식별해서 제목이랑 내용만 수정 - > 로그인된 사람
@@ -161,6 +164,46 @@ public class LoginPage {
 		else if(result==2) {System.out.println("안내] 글 삭제 실패 : 관리자 오류");}
 		else if(result==3) {System.out.println("경고] 본인 글만 삭제 가능 합니다.");}
 	}
+	
+	//14.쪽지보내기 
+	public void sentMessage() {
+		System.out.println("=========쪽지보내기========");
+		System.out.println("보낼 쪽지 내용 :"); String content =sc.next();
+		boolean result= BoardController.getInstanct().sentMessage(content);
+		if(result)System.out.println("쪽지 보내기 완료!"); 
+		else System.out.println("안내]쪽지 보내기 실패");
+		
+	} 
+	//15. 쪽지확인 페이지 // + 쪽지답장 보내기
+	public void checkMessage() {
+		System.out.println("=========쪽지확인=======");
+		ArrayList<MessageDto>result = BoardController.getInstanct().checkMessage();
+		//2. 출력
+		System.out.printf("%-3s %-4s %-25s %-25s %s\n", "pno" , "mno","pcontent" , "pdate", "mid");
+		for(int i = 0 ; i<result.size(); i++) {
+						//리스트.size() : 리스트내 객체수 => length 동일
+			MessageDto dto =result.get(i);
+			System.out.printf("%-3s %-4s %-20s %-20s %s\n", dto.getPno() , dto.getMno(),dto.getPcontent() ,dto.getPdate(), dto.getMid());
+			reply(dto.getPno()); 
+	}
+		
+	}
+	//16. 쪽지답장 보내기 페이지
+	public void reply(int pno) {
+		System.out.println("======답장 보내기 ========");
+		System.out.println("답장 보낼 쪽지 번호를 입력해주세요 선택:"); int ch=sc.nextInt();
+		
+		if(pno==ch) {System.out.println("답장 입력 : ") ;String reply= sc.next();
+			boolean result =BoardController.getInstanct().reply(ch,reply);
+			if(result)System.out.println("답장완료했습니다."); 
+			else System.out.println("안내]입력오류");
+		}
+		else {System.out.println("안내]입력오류 초기화면으로 돌아갑니다.");}
+		
+	
+		
+	}
+	
 	
 	
 }//p end

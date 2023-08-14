@@ -105,6 +105,7 @@ public class MemberController {
 	 public boolean infoDelete() {
 		 return MemberDao.getInstance().infoDelete(loginSession);	//실패
 	 }
+
 	
 }
 
