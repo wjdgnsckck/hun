@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.awrap {
+	width: 800px;
+	margin: 0 auto;
+}
+.aTop {
+	display: flex;
+	margin: 30px 0px;
+	border-bottom: 1px solid #e8e8e8;
+}
+.aname{
+	text-align:  center;
+	width : 100%;
+	background : #e8e8e8;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.acontent {
+	background :white;
+	color: black;
+	border-radius:5px;
+	width: 200px;
+	height: 20px;
+	margin: 10px 10px;
+}
+
+.aprice {
+	background :white;
+	color: black;
+	border-radius:5px;
+	width: 200px;
+	height: 20px;
+	margin: 10px 10px;
+}
+
+.adate {
+	background :white;
+	color: black;
+	border-radius:5px;
+	width: 200px;
+	height: 20px;
+	margin: 10px 10px;
+}
+
+.abox {
+	display: flex;
+	justify-content: center;
+	border: 1px solid #e8e8e8;
+}
+.awriter{
+	width: 50px;
+	height: 26px;
+	margin: 10px 10px;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	border-radius:5px;
+}
+
+.abox div{
+	width: 25%;
+	height: 20px;
+	margin: 10px 0px;
+}
+
+.abox button{
+	background :white;
+	color: black;
+	border-radius:5px;
+	width: 50px;
+	height: 24px;
+	margin: 10px;
+}
