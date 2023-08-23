@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+
+
+.visitwrap{
+	width: 500px; /* 구역 가로 사이즈  */
+	margin: 0 auto ; /* 가운데 정렬 */
+	
+}
+
+.visit_Top{
+	display: flex;	/* 하위 요소들의 가로배치 */
+	margin:  30px 0px;
+}
+.visit_Inputs input{ /* 상위선택자명 하위선택자명 */
+	width:  100px;
+	padding:  5px; /* 안쪽여백 */
+	border: 1px solid #e8e8e8; 	/* 테두리 */	
+}
+.visit_Top textarea{
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #e8e8e8; 
+	resize: none; /* 사이즈 변경 불가 */
+	margin-left: 5px;
+}
+.visit_Top button {
+	width: 80px;
+	background-color: black; /* 배경색  */ 
+	color:white;  /* 글꼴 색  */
+	border: none;	/* 테두리 없음  */
+}
+
+/*-------------------------------------------*/
+/* 출력 구역 */
+.visit_Bottom{margin: 50px 0px;}
+/*방문록 1개 구역*/
+.visitbox{display: flex;
+		border-top: 1px solid #e8e8e8;
+		padding-top: 10px; /* 안쪽여백 : 테두리와 내용물 사이의 여백 */
+		margin-top: 20px;  /* 바깥여백 : 테두리와 다른 구역의 간격  */
+}
+.visitdate{font-size:  9px;}
+.visit_top{width: 20%;}
+.visit_center{width: 60%;margin:  0px 10px;}
+.visit_bottom{width: 20%;}
+.visitbox button {
+	width: 100%;
+	background-color: black;
+	color: white;
+	border: none;
+}
