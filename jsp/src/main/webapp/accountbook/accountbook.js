@@ -89,6 +89,7 @@ function adelete(ano) {
       data : {ano:ano},
       success : function f(r){
 		  if(r==true){alert("가계부 삭제완료"); aview();}
+		  else{alert("오류")}
 	  } ,
       error : function f(r){}
    })
