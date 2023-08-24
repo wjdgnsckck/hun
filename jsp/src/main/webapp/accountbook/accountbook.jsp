@@ -8,6 +8,8 @@
 		<link href="accountbook.css" rel = "stylesheet"/>
 </head>
 <body>
+		<%@include file="../header.jsp" %>
+
 		<div class="awrap">
 			<div class = "aname">가계부</div>
 				<div class = "aTop">
