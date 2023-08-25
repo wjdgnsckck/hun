@@ -1,4 +1,4 @@
-package java2.day26_컬랙션프레임워크.Ex1;
+package java2.day26_컬랙션프레임워크;
 
 public class Board {
 	private String subject;
