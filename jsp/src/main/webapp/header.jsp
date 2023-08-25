@@ -15,6 +15,7 @@
 			<li><a href=" /jsp/visitlog/visitlog.jsp">방문록</a></li>
 			<li><a href="/jsp/accountbook/accountbook.jsp">가계부</a></li>
 			<li><a href="/jsp/Member/signup.jsp">회원가입</a></li>
+			<li><a href="/jsp/library/library.jsp">도서관</a>
 		</ul>
 		
 	</div>
