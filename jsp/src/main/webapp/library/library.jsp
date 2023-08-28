@@ -23,16 +23,7 @@
       <button class="input" onclick="enterace()">입실</button> 
       <button class="output" onclick="leave()">퇴실</button>
       
-      <div><!--관리자 페이지  -->
-   			<input class="mname" type="text" placeholder="아이디"/>
-   			<input class="mpassword" type="password" placeholder="비밀번호"/>
-   			<button onclick="manager()">로그인</button>
-   			<div class="seat">좌석</div> 
-   			<input type="text"placeholder="좌석번호"> 
-   			<button class="seatInput">좌석추가</button>
-   			<button class="seatOutput">좌석삭제</button>
-   			<div class="profile">이용자들기록</div>
- 	  </div>
+
    </div>
    
    

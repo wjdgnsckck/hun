@@ -13,9 +13,9 @@
 		<ul>
 			<li><a href="/jsp/index.jsp">홈으로</a></li>
 			<li><a href=" /jsp/visitlog/visitlog.jsp">방문록</a></li>
-			<li><a href="/jsp/accountbook/accountbook.jsp">가계부</a></li>
 			<li><a href="/jsp/Member/signup.jsp">회원가입</a></li>
-			<li><a href="/jsp/library/library.jsp">도서관</a>
+				<li><a href="/jsp/accountbook/accountbook.jsp">과제1:가계부</a></li>
+			<li><a href="/jsp/library/library.jsp">과제2:독서실</a>
 		</ul>
 		
 	</div>

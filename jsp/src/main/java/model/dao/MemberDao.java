@@ -42,11 +42,12 @@ public class MemberDao  extends Dao{
     //5. 내정보 호출
     
     //6. 아이디/이메일 중복검사
-    	//1.아이디 중복검사
-    	public boolean midFind(String mid) {
-    		try {String sql ="select * from member where mid=?";
+    	//type  : 필드명 / data : 필드에서 찾을 값
+    	//1.아이디혹은 이메일 중복검사 중복검사
+    	public boolean  Exist(String type,String data) {
+    		try {String sql ="select * from member where "+type+" =?";
     		ps=conn.prepareStatement(sql);
-    		ps.setString(1, mid);
+    		ps.setString(1, data);
     		rs=ps.executeQuery();
     		if(rs.next()) {
     			return true;
