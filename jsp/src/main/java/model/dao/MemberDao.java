@@ -23,9 +23,11 @@ public class MemberDao  extends Dao{
     		int rs = ps.executeUpdate();
     		if(rs==1) {
     			return true;
+    			
     		}
 		} catch (Exception e) {
 			System.out.println(e);
+		
 			return false;
 		}
     	
