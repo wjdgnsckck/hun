@@ -1,4 +1,4 @@
-package java2.day27_컬랙션프레임워크2.Ex1_예제HashSet.Ex3_HashTable;
+package java2.day28_컬렉션프레임워크3.Ex3_HashTable;
 
 import java.util.Hashtable;
 import java.util.Map;

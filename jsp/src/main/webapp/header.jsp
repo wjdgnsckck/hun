@@ -5,18 +5,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link href="/jsp/css/header.css" rel="stylesheet"> 
 </head>
 <body>
 
 	<!-- 헤더  -->
-	<div>
-		<ul>
-			<li><a href="/jsp/index.jsp">홈으로</a></li>
-			<li><a href=" /jsp/visitlog/visitlog.jsp">방문록</a></li>
-			<li><a href="/jsp/Member/signup.jsp">회원가입</a></li>
-				<li><a href="/jsp/accountbook/accountbook.jsp">과제1:가계부</a></li>
-			<li><a href="/jsp/library/library.jsp">과제2:독서실</a>
+	<div id= "header">
+		<div class="mainlogo">
+			<a href="/jsp/index.jsp">
+				<img alt=""src="/jsp/img/logo.png"/>
+			</a><!-- 로고  -->
+		</div>
+		<ul class="mainmenu">
+			<li><a href=" /jsp/visitlog/visitlog.jsp">방문록</a></li><!-- 본메뉴  -->
+			<li><a href="#">기능1</a></li>
+			<li><a href="#">기능2</a></li>
+			<li><a href="#">기능3</a></li>
+			<li><a href="/jsp/accountbook/accountbook.jsp">(과1)가계부</a></li>
+			<li><a href="/jsp/library/library.jsp">(과2)독서실</a>
+			<li><a href="/jsp/hrm/hrm.jsp">(과3)인사관리</a>
 		</ul>
+		<ul class="submenu">
+			<li><a href="/jsp/Member/signup.jsp">회원가입</a></li>
+			<li><a href="/jsp/Member/login.jsp">로그인</a></li>
+			<li><a href="#">로그아웃</a></li>
+			<li><a href="#">내정보</a></li>
+			<li><img class="hmimg" src ="/jsp/Member/img/default.webp"></li>	<!-- 서브 메뉴  -->
+		</ul>
+	
 		
 	</div>
 	<!-- 최신 JQERY import (ajax() 사용할 js 파일위치 호출)  -->

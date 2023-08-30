@@ -10,7 +10,7 @@
 </head>
 <body>
 
-   
+   	<%@include file="../header.jsp"%>
    <div class="wrap">
       <div class = "sitBtnView">
       

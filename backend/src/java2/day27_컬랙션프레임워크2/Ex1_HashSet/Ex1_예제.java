@@ -1,8 +1,10 @@
-package java2.day27_컬랙션프레임워크2.Ex1_예제HashSet;
+package java2.day27_컬랙션프레임워크2.Ex1_HashSet;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+
+import java2.day27_컬랙션프레임워크2.Member;
 
 public class Ex1_예제 {
    public static void main(String[] args) {

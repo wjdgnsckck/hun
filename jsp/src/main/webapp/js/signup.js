@@ -328,11 +328,22 @@ function signup(){
 							data: signupData ,
 							contentType:false,
 							processData:false,
-							success: r => { console.log(r) },
+							success: r => { 
+							
+								if(r){	//회원가입에 성공하면
+									alert('회원가입성공');
+									location.href='/jsp/Member/login.jsp';
+								}
+								else{//회원가입에 실패하면
+									alert('회원가입 실패')
+								}
+								
+								
+							 },
 							error: e => {console.log(e) }
 							})
 	
-	}else{console.log('회원가입 불가') }
+	}else{alert('정상으로 입력이 안된 내용이 있습니다!') }
 	
 }
 

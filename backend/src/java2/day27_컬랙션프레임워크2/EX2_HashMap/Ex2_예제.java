@@ -1,4 +1,4 @@
-package java2.day27_컬랙션프레임워크2.Ex1_예제HashSet;
+package java2.day27_컬랙션프레임워크2.EX2_HashMap;
 
 import java.util.HashMap;
 import java.util.Map;
