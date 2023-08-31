@@ -26,17 +26,14 @@
 			<li><a href="/jsp/hrm/hrm.jsp">(과3)인사관리</a>
 		</ul>
 		<ul class="submenu">
-			<li><a href="/jsp/Member/signup.jsp">회원가입</a></li>
-			<li><a href="/jsp/Member/login.jsp">로그인</a></li>
-			<li><a href="#">로그아웃</a></li>
-			<li><a href="#">내정보</a></li>
-			<li><img class="hmimg" src ="/jsp/Member/img/default.webp"></li>	<!-- 서브 메뉴  -->
+		
 		</ul>
 	
 		
 	</div>
 	<!-- 최신 JQERY import (ajax() 사용할 js 파일위치 호출)  -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="/jsp/js/header.js"></script>
 </body>
 </html>
 

@@ -294,7 +294,7 @@ function preimg(object){console.log('사진 선택 변경')
 		document.querySelector('.preimg').src=e.target.result}
 	
 	
-	
+
 }// f end
 let checkList = [false , false , false] // [0] : 아이디 통과  [1] :비밀번호 통과 [2] : 이메일 통과
 	//true 이면 통과 , false 이면 불통

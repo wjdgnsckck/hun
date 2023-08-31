@@ -1,6 +1,8 @@
 package model.dao;
 
 import java.net.ConnectException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import model.dto.MemberDto;
 
@@ -55,7 +57,22 @@ public class MemberDao  extends Dao{
     //4. 비밀번호 찾기
     
     //5. 내정보 호출
-    
+    public MemberDto info (String mid) {
+    	try {String sql = "select mno,mid,memail,mimg from member where mid = ?;";
+    	ps=conn.prepareStatement(sql);
+    	ps.setString(1, mid);
+    	rs=ps.executeQuery();
+    	if(rs.next()) {
+    		
+    		MemberDto dto = new MemberDto(
+    				LocalDateTime.now().toString(), //	LocalDateTime.now().toString() = 현재 날짜 시간 문자열 반환
+    				rs.getInt(1), rs.getString(2),
+    				rs.getString(3),  rs.getString(4));
+    		return dto;
+    	}
+		} catch (Exception e) {System.out.println(e);}
+    	return null;
+    }
     //6. 아이디/이메일 중복검사
     	//type  : 필드명 / data : 필드에서 찾을 값
     	//1.아이디혹은 이메일 중복검사 중복검사
@@ -75,7 +92,52 @@ public class MemberDao  extends Dao{
     	}
     
     //7. 회원수정
+    	
+    	
     
+    	public boolean mupdate(String mimg ,int mno,String newMpwd ) {
+    		try {String sql = "update member set mimg = ? ,mpwd = ? where mno = ? ;";
+    		ps=conn.prepareStatement(sql);
+    		ps.setString(1, mimg);
+    		ps.setString(2, newMpwd);
+    		ps.setInt(3, mno);
+    		
+    		int rs=ps.executeUpdate();
+    		if(rs==1) {
+    			return true;
+    		}
+    		
+    		}catch (Exception e) {
+				System.out.println(e);
+			}
+    		return false;
+    	}
     //8. 회원탈퇴
+    	//8-1 입력받은 회원의 비밀번호 찾기
+    	public boolean FindPwd(String mpwd) {
+    		try {String sql ="select mpwd from member where mpwd = ?;";
+    		ps=conn.prepareStatement(sql);
+    		ps.setString(1,mpwd);
+    		rs=ps.executeQuery();
+    		if(rs.next()) {
+    			return true;
+    		}
+				
+			} catch (Exception e) {System.out.println(e);}
+    		
+    		return false;
+    	}
+    	public boolean DeletePwd(String mid) {
+    		try {String sql ="delete from member where mid=?;";
+    		ps=conn.prepareStatement(sql);
+    		ps.setString(1, mid);
+    		int rs = ps.executeUpdate();
+    		if(rs==1) {
+    			return true;
+    		}
+				
+			} catch (Exception e) {System.out.println(e);}
+    		return false;
+    	}
     
 }
