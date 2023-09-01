@@ -1,1 +1,10 @@
 @charset "UTF-8";
+.img {
+	width: 100px; height: 100px;
+}
+.boardTable{
+	width: 100%;
+}
+.boardTable th{
+	width: 10px;
+}

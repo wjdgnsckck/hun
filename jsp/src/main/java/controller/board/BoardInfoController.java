@@ -1,6 +1,7 @@
 package controller.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -26,8 +28,18 @@ public class BoardInfoController extends HttpServlet {
     }
     //1.전체조회 2.개별조회
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//1. 요청 x
+		
+		//2. 유효성검사 / 객체화
+		
+		//3. Dao
+		ArrayList<BoardDto> result = BoardDao.getInstanct().getList();
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonArray = objectMapper.writeValueAsString(result);
+		//4. 반환타입 
+		response.setContentType("application/json;charset=UTF-8"); 
+		response.getWriter().print(jsonArray);
 	}
 
 	//2. 쓰기

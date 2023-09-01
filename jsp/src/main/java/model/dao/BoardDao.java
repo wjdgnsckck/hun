@@ -1,5 +1,7 @@
 package model.dao;
 
+import java.util.ArrayList;
+
 import model.dto.BoardDto;
 
 public class BoardDao extends Dao{
@@ -28,6 +30,30 @@ public class BoardDao extends Dao{
     	return false;
     }
     //2. 모든 글 출력
+    public ArrayList<BoardDto> getList(){
+    	
+    	//* 게시물 레코드 정보의 DTO를 여러개 저장하는 리스트
+    	ArrayList<BoardDto> list =new ArrayList<>();
+    	
+    	
+    	try {String sql = " select b.*, m.mid  , m.mimg , bc.bcname\r\n"
+    			+ "    from board b \r\n"
+    			+ "			natural join bcategory bc \r\n"
+    			+ "			natural join member m order by bdate desc;";
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				BoardDto dto = new BoardDto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getInt(7),rs.getInt(8),rs.getString(9), rs.getString(10), rs.getString(11));
+				list.add(dto);
+				System.out.println(dto);
+			}
+		} catch (Exception e) {
+		System.out.println(e);
+		}
+    	System.out.println(list);
+		return list;
+    }
     
     //3. 개별 글 출력
     
