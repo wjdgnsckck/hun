@@ -1,7 +1,7 @@
 
 //1. 현재 로그인된 회원정보 요청
+let loginState =false;
 getMemberInfo();
-
 
 function getMemberInfo(){
 	
@@ -14,10 +14,11 @@ function getMemberInfo(){
 		    let submenu=document.querySelector('.submenu')
 		    let html=``;
 		  if(r==null){ //비로그인 상태
-		  console.log(r)
+			loginState=false;
 			 html+= `<li><a href="/jsp/Member/signup.jsp">회원가입</a></li>
 					<li><a href="/jsp/Member/login.jsp">로그인</a></li>`;
 		  }else{//로그인
+		  	loginState=true;
 			  html+=`<li>qweqwe님</li>
 			<li><img class="hmimg" src ="/jsp/Member/img/${r.mimg}"></li>	<!-- 서브 메뉴  -->
 			<li><a onclick="logout()" href="#">로그아웃</a></li>
