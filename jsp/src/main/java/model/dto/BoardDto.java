@@ -16,8 +16,19 @@ public class BoardDto {/*게시물 , 카테고리*/
     private String mid; // 작성자 회원아이디
     private String bcname; // 카테고리명
     private String mimg;
+    //- 조회대상자와 작성자대상자 일치여부
+    private boolean ishost;
     
-    //생성자[ 1. 빈생성자 2. 풀생성자 3. 작업하면 필요한 생성자]
+    
+    public boolean isIshost() {
+		return ishost;
+	}
+
+	public void setIshost(boolean ishost) {
+		this.ishost = ishost;
+	}
+
+	//생성자[ 1. 빈생성자 2. 풀생성자 3. 작업하면 필요한 생성자]
     public BoardDto() {}
 
   //- 모든 글 등록시 사용되는 생성자
@@ -37,23 +48,23 @@ public class BoardDto {/*게시물 , 카테고리*/
 		this.bcname = bcname;
 	
 	}
-  //- 글 등록시 사용되는 생성자
+  //- 글 수정시 사용되는 생성자
+
+	public BoardDto(int bno, String btitle, String bcontent, String bfile, int bcno) {
+	super();
+	this.bno = bno;
+	this.btitle = btitle;
+	this.bcontent = bcontent;
+	this.bfile = bfile;
+	this.bcno = bcno;
+}
+
 	
 
 
+
+
 	
-
-
-
-
-	public String getMimg() {
-		return mimg;
-	}
-
-
-	public void setMimg(String mimg) {
-		this.mimg = mimg;
-	}
 
 
 	public BoardDto(String btitle, String bcontent, String bfile, int mno, int bcno) {
@@ -66,6 +77,15 @@ public class BoardDto {/*게시물 , 카테고리*/
 	}
 	
 
+
+	public String getMimg() {
+		return mimg;
+	}
+
+
+	public void setMimg(String mimg) {
+		this.mimg = mimg;
+	}
 	//메소드
 	public int getBno() {
 		return bno;
