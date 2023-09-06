@@ -28,7 +28,7 @@ public class MemberController extends HttpServlet {
 		// 첨부파일 저장할 경로
 		// 1. 개발자 pc경로 업로드 [문제발생 : 개발자pc에 업로드하면 업로드파일을 서버로 빌드]
 		// String uploadpath =
-		// "C:\\Users\\504\\git\\ezen_web_2023\\jspweb\\src\\main\\webapp\\member\\img";
+		// "C:\\Users\\504\\git\\ezen_web_2023\\jspwebweb\\src\\main\\webapp\\member\\img";
 		// 2. 서버 pc경로 업로드 [사용자가 바로 서버pc 업로드]
 		// String uploadpath =
 		// "C:\\Users\\504\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps";

@@ -16,7 +16,7 @@ public class HrmDto {
 
 	
 	//출력하는 생성자
-	public HrmDto( String hphone, String hname, String himg, String hrank, String hdate) {
+	public HrmDto(  String hname,String hphone, String hrank,String himg,  String hdate) {
 		super();
 		this.himg = himg;
 		this.hname = hname;
@@ -27,7 +27,7 @@ public class HrmDto {
 
 
 	//저장하는 생성자
-	public HrmDto(String hphone, String hname, String himg, String hrank) {
+	public HrmDto(String himg, String hname, String hphone, String hrank) {
 		super();
 		this.hphone = hphone;
 		this.hname = hname;

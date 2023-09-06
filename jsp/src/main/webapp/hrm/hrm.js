@@ -26,7 +26,7 @@ function regis () {
 
 	console.log(hrmdata)
 	$.ajax({
-		url:"/jsp/HrmController",
+		url:"/jspweb/HrmController",
 		method:"post",
 		data: hrmdata,
 		contentType:false,
@@ -43,19 +43,20 @@ function regis () {
 hread()
 function hread(){
 	$.ajax({
-      url : "/jsp/HrmController",
+      url : "/jspweb/HrmController",
       method : "get",
       data : "" ,
-      success : r=>{	
+      success : r=>{console.log(r)
 	let output=document.querySelector('.hrmbtn')
 	let html=``;
 	for(let i =0 ; i<r.length ; i++ ){
+		
 		 html+=`<div class="hrmbtn"> 
 					<div class="readid">${r[i].hname}</div>
 					<div class="readph">${r[i].hphone}</div>
 					<div class="readrk">${r[i].hrank}</div>
 					<div class="readdate">${r[i].hdate}</div>
-					<img class="box_himg" src="/jsp/hrm/img/${r[i].himg}">
+					<img class="box_himg" src="/jspweb/hrm/img/${r[i].himg}">
 					<button type="button">수정</button>
 					<button type="button">삭제</button>
 				</div>`

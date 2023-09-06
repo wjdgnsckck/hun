@@ -27,7 +27,7 @@ public class BoardDao extends Dao {
 	// 2-2 게시물 수 출력 
 	public int getTotalSize( int bcno , String key , String keyword ) {
 		try {
-			String sql = "select count(*) from board b ";
+			String sql = "select count(*) from board b natural join member m ";
 			
 			// -만약에 전체보기 가 아니면 [ 카테고리별 개수 ]
 			if( bcno != 0 ) { sql += " where b.bcno = "+ bcno; }
@@ -86,7 +86,7 @@ public class BoardDao extends Dao {
 						rs.getString("bfile"), rs.getString("bdate"), 
 						rs.getInt("bview"), rs.getInt("mno"), 
 						rs.getInt("bcno"), rs.getString("mid"), 
-						rs.getString("bcname"), rs.getString("mimg") 
+						rs.getString("mimg"), rs.getString("bcname") 
 						);
 				list.add(boardDto);
 			}
@@ -114,7 +114,7 @@ public class BoardDao extends Dao {
 						rs.getString("bfile"), rs.getString("bdate"), 
 						rs.getInt("bview"), rs.getInt("mno"), 
 						rs.getInt("bcno"), rs.getString("mid"), 
-						rs.getString("bcname"), rs.getString("mimg") 
+						rs.getString("mimg"), rs.getString("bcname") 
 						);
 				return boardDto;
 			}

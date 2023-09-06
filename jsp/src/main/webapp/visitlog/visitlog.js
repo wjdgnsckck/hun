@@ -20,7 +20,7 @@ function vwrite() {
 
 	//4.AJAX
 	$.ajax({
-		url: "/jsp/VisitlogController",
+		url: "/jspweb/VisitlogController",
 		method: "post",
 		data: info,
 		success: function f(r) {
@@ -40,7 +40,7 @@ function vwrite() {
 vread();
 function vread() { // 실행조건 : JS가 열릴때 한번 실행 ,등록 , 수정 , 삭제 =>최신화 [새로고침]
 	$.ajax({
-		url: "/jsp/VisitlogController",
+		url: "/jspweb/VisitlogController",
 		method: "get",
 		data: "",
 		success: function f(r) {
@@ -89,7 +89,7 @@ function vupdate(vno) { console.log('vupdate() open'+vno)
 	 
 	 // 수정 준비물 : vno(누구를) , vcontent(어떤내용으로) , vpwd(조건용:비밀번호일치여부)
 	 $.ajax({
-      url : "/jsp/VisitlogController", //통신할 백엔드 (컨트롤러 서블릿 주소)
+      url : "/jspweb/VisitlogController", //통신할 백엔드 (컨트롤러 서블릿 주소)
       method : "put",
       data : {vno : vno , vcontent: vcontent ,vpwd : vpwd} ,
       success : function f(r){console.log("통신성공");
@@ -109,7 +109,7 @@ function vdelete(vno) {console.log('vdelete() open'+vno)
 		
 		// 삭제 준비물 : vno(누구를) , vpwd(조건용:비밀번호일치여부)
 	$.ajax({
-      url : "/jsp/VisitlogController",
+      url : "/jspweb/VisitlogController",
       method : "delete",
       data : {vno : vno , vpwd : vpwd} ,
       success : function f(r){if(r==true){alert('삭제성공');vread();}

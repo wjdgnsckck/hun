@@ -17,7 +17,7 @@
 			</div>
 	</div>
 	
-	<script src="../js/snsUpdate.js" type="text/javascript"></script>
+	
 	<script  src="../js/board/view.js"  type="text/javascript"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<link href="/jsp/css/board/list.css" rel="stylesheet"/>
+	<link href="/jspweb/css/board/list.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -29,7 +29,7 @@
 					<option value="15">15</option> 
 					<option value="20">20</option>
 				</select>
-				<span class="boardcount"> 전체 게시물수 : 13 </span> <!-- 전체 게시물 수 -->
+				<span class="boardcount">  </span> <!-- 전체 게시물 수 -->
 			</div>
 			<button class="bbtn" onclick="onWrite()" type="button">글쓰기</button>
 		</div>

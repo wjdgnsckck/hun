@@ -11,7 +11,7 @@ sitRender()
     view.innerHTML = ``
     sitList=[]
         $.ajax({
-      url : "/jsp/LibraryController",
+      url : "/jspweb/LibraryController",
       method : "get",
       async : false,
       success : function f(r){
@@ -65,7 +65,7 @@ function enterace()
        lphonenumber :_phone.value
     }
     $.ajax({
-      url : "/jsp/LibraryController",
+      url : "/jspweb/LibraryController",
       method : "put",
       data : info,
       success : r=>{sitRender()
@@ -85,7 +85,7 @@ function enterace()
  {
     
        $.ajax({
-      url : "/jsp/LibraryController",
+      url : "/jspweb/LibraryController",
       method : "delete",
       data : {lno:sitNumber,getphone:prompt("전화번호 입력")},
       success : function f(r){
@@ -116,7 +116,7 @@ function manager() { console.log('관리자')
 	 
 	 
 	 $.ajax({
-      url : "/jsp/MangerController",
+      url : "/jspweb/MangerController",
       method : "post",
       data : info ,
       

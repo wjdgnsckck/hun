@@ -3,13 +3,13 @@
 getInfo();
 function getInfo(){
 	$.ajax({
-      url : "/jsp/MemberInfoController",
+      url : "/jspweb/MemberInfoController",
       method : "get",
       data : {type : "info"} ,
       success : r=>{
 		  if(r==null){//비로그인 상태
 			  alert('회원전용 페이지 입니다.[로그인페이지 이동]')
-			  location.href="/jsp/Member/login.jsp";
+			  location.href="/jspweb/Member/login.jsp";
 		  }
 		  else{// 로그인 되어있으면
 			  document.querySelector('.preimg').src=`img/${r.mimg}`; 
@@ -39,13 +39,13 @@ function mdelete(){
 		let mpwd = prompt('비밀번호를 입력해주세요');
 		//3. ajax
 		$.ajax({ // mpwd가 있는지 검증
-      	url : "/jsp/MemberInfoController",
+      	url : "/jspweb/MemberInfoController",
       	method : "post",
       	data : {mpwd:mpwd},
       	success : r=>{ 
 			  if(r){
 				  $.ajax({ // mpwd가 db에 있으면 그 비밀번호와 일치한 정보 삭제하기
-				      url : "/jsp/MemberInfoController",
+				      url : "/jspweb/MemberInfoController",
 				      method : "delete",
 				      data : "" ,
 				      success : r=>{
@@ -74,7 +74,7 @@ function mupdate(){
 	let formdata= new FormData(form);	
 	
 	$.ajax({
-      url : "/jsp/MemberInfoController",
+      url : "/jspweb/MemberInfoController",
       method : "put",
       data : formdata ,
       contentType:false,

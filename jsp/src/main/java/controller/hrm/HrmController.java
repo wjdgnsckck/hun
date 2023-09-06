@@ -40,14 +40,15 @@ public class HrmController extends HttpServlet {
 		);
     	
     	//클래스가 아닌 name 태그를 더 지정해줘야한다!!! 아니면 null값이 입력된다
-    	String himg=multi.getFilesystemName("himg");System.out.println(himg);
-    	String hname= multi.getParameter("hname"); System.out.println(hname);
-    	String hpwd= multi.getParameter("hpwd"); System.out.println(hpwd);
-    	String hrank= multi.getParameter("hrank"); System.out.println(hrank);
+    	String himg=multi.getFilesystemName("himg");
+    	String hname= multi.getParameter("hname"); 
+    	String hphone= multi.getParameter("hphone"); 
+    	String hrank= multi.getParameter("hrank"); 
     	
     	if(himg==null) himg="default.webp";
     	//객체화 하기
-    	HrmDto dto = new HrmDto(himg,hname,hpwd,hrank);
+    	HrmDto dto = new HrmDto(himg,hname,hphone,hrank);
+   
     	//Dao 전송하기
         boolean result=  HrmDao.getInstanct().signup(dto);
         
@@ -60,7 +61,7 @@ public class HrmController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		ArrayList<HrmDto> result = HrmDao.getInstanct().hread();
-		System.out.println(result);
+		
 		ObjectMapper objectMapper = new ObjectMapper();
 		String jsonArray= objectMapper.writeValueAsString(result); 
 		

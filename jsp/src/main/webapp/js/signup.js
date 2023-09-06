@@ -71,7 +71,7 @@ function idcheck() { /* 실행조건 : 아이디 입력창이 입력할때마다
 
 		//-- 입력한 아이디랑 패턴과 일치하면 아이디 중복검사
 		$.ajax({
-			url: "/jsp/MemberFindController",
+			url: "/jspweb/MemberFindController",
 			method: "get",
 			data: { type: "mid", data: mid },
 			success: r => {
@@ -142,7 +142,7 @@ function emailcheck() {
 	//3. 유효성검사
 	if (memailj.test(memail)) {
 		$.ajax({
-			url: "/jsp/MemberFindController",
+			url: "/jspweb/MemberFindController",
 			method: "get",
 			// type 사용하는 이유 : 서로 다른 ajax가 동일한 서블릿과 동일한 get메서드를 사용하기위해
 			data: { type: "memail", data: memail },
@@ -188,7 +188,7 @@ function authReq() {
 
 	/*//-- 인증요청시 서블릿 통신 [ 인증코드 생성 , 이메일전송 ]
 	$.ajax({
-		url:"/jsp/AuthSendEmail",
+		url:"/jspweb/AuthSendEmail",
 		method:"get",
 		data:{memail:document.querySelector('.memail').value},
 		success : r=>{
@@ -323,7 +323,7 @@ function signup(){
 							*/
 				//2. 첨부파일 있을때 . []
 				$.ajax({
-							url: "/jsp/MemberController",
+							url: "/jspweb/MemberController",
 							method: "post",		//첨부파일 form 전송은 무조건 post 방식
 							data: signupData ,
 							contentType:false,
@@ -332,7 +332,7 @@ function signup(){
 							
 								if(r){	//회원가입에 성공하면
 									alert('회원가입성공');
-									location.href='/jsp/Member/login.jsp';
+									location.href='/jspweb/Member/login.jspweb';
 								}
 								else{//회원가입에 실패하면
 									alert('회원가입 실패')
@@ -372,7 +372,7 @@ function signup() {
 
 	//4. AJAX메소드를 이용한 Servlet 와 통신
 	$.ajax({
-		url: "/jsp/MemberController",
+		url: "/jspweb/MemberController",
 		method: "post",
 		data: info,
 		success: r => { if (r == true) { alert('회원가입성공') } },

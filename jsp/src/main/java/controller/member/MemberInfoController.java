@@ -86,7 +86,7 @@ public class MemberInfoController extends HttpServlet {
 				"UTF-8", 
 				new DefaultFileRenamePolicy()); //중복시 자동으로 번호를 부여함
 		//--------------------DB 업데이트------------//
-		//*form 전솔일때는 input의 데이터 호출시 **form은 jsp 의 name식별자로 확인해야한다!
+		//*form 전솔일때는 input의 데이터 호출시 **form은 jspweb 의 name식별자로 확인해야한다!
 		// 일반 input : multi.getParameter("input name")
 		// 첨부 input : multi.getFilesystemName("input name")
 		String mimg =multi.getFilesystemName("mimg");

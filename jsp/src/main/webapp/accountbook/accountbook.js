@@ -13,11 +13,11 @@ function awriter() {
 	console.log(info)
 
 	$.ajax({
-		url: "/jsp/Accountbook",
+		url: "/jspweb/Accountbook",
 		method: "post",
 		data: info,
 		success: function f(r) {
-			console.log("통신완료")
+			console.log("통신")
 			
 			if (r == true) {alert('입력값이 저장되었습니다.');aview();}
 			else alert('입력오류')
@@ -29,7 +29,7 @@ aview();
 //2.출력
 function aview() {
 	$.ajax({
-		url: "/jsp/Accountbook",
+		url: "/jspweb/Accountbook",
 		method: "get",
 		data: "",
 		success: function f(r) {
@@ -66,7 +66,7 @@ function aupdate(ano) {
 	let adate = prompt('수정할 날짜 :')
 
 	$.ajax({
-      url : "/jsp/Accountbook",
+      url : "/jspweb/Accountbook",
       method : "put",
       data :{ ano : ano ,acontent:acontent ,aprice:aprice,adate:adate} ,
       success : function f(r){
@@ -84,7 +84,7 @@ function aupdate(ano) {
 function adelete(ano) {
 	console.log("삭제")
 	$.ajax({
-      url : "/jsp/Accountbook",
+      url : "/jspweb/Accountbook",
       method : "delete",
       data : {ano:ano},
       success : function f(r){
