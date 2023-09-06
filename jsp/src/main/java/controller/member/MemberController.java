@@ -37,7 +37,7 @@ public class MemberController extends HttpServlet {
 		// request.getSession().getServletContext().getRealPath("프로젝트명 이하 경로");
 		//String uploadpath = "C:\\Users\\504\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps";
 		
-		String uploadpath = request.getSession().getServletContext().getRealPath("/Member/img");
+		String uploadpath = request.getSession().getServletContext().getRealPath("/member/img");
 		System.out.println(uploadpath);
 		// 첨부파일 전송 했을때.
 		// 1. 첨부파일 서버PC에 업로드 ( COS.Jar 라이브러리 )

@@ -81,7 +81,7 @@ public class MemberInfoController extends HttpServlet {
 		//multipart/form-data 전송 요청 // cos.jar [MultipartRequest클래스]
 		MultipartRequest multi = new MultipartRequest(
 				request, 
-				request.getServletContext().getRealPath("/Member/img"),
+				request.getServletContext().getRealPath("/member/img"),
 				1024*1024*10,
 				"UTF-8", 
 				new DefaultFileRenamePolicy()); //중복시 자동으로 번호를 부여함
