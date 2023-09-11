@@ -9,7 +9,7 @@ function getInfo(){
       success : r=>{
 		  if(r==null){//비로그인 상태
 			  alert('회원전용 페이지 입니다.[로그인페이지 이동]')
-			  location.href="/jspweb/Member/login.jsp";
+			  location.href="/jspweb/member/login.jsp";
 		  }
 		  else{// 로그인 되어있으면
 			  document.querySelector('.preimg').src=`img/${r.mimg}`; 

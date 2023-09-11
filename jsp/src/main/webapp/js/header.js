@@ -1,6 +1,6 @@
-
 //1. 현재 로그인된 회원정보 요청
 let loginState =false;
+let loginMid ='';
 getMemberInfo();
 
 function getMemberInfo(){
@@ -9,16 +9,17 @@ function getMemberInfo(){
 	$.ajax({
       url : "/jspweb/MemberInfoController",
       method : "get",
+      async : false ,  				/*동기화(false) , 비동기화(기본값 = true)*/
       data : {type : "info"} ,
       success : r=>{
 		    let submenu=document.querySelector('.submenu')
 		    let html=``;
 		  if(r==null){ //비로그인 상태
-			loginState=false;
+			loginState=false ; loginMid='';
 			 html+= `<li><a href="/jspweb/member/signup.jsp">회원가입</a></li>
 					<li><a href="/jspweb/member/login.jsp">로그인</a></li>`;
 		  }else{//로그인
-		  	loginState=true;
+		  	loginState=true ;loginMid=r.mid;
 			  html+=`<li>qweqwe님</li>
 			<li><img class="hmimg" src ="/jspweb/member/img/${r.mimg}"></li>	<!-- 서브 메뉴  -->
 			<li><a onclick="logout()" href="#">로그아웃</a></li>
