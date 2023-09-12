@@ -332,7 +332,7 @@ function signup(){
 							
 								if(r){	//회원가입에 성공하면
 									alert('회원가입성공');
-									location.href='/jspweb/Member/login.jspweb';
+									location.href='/jspweb/member/login.jspweb';
 								}
 								else{//회원가입에 실패하면
 									alert('회원가입 실패')
