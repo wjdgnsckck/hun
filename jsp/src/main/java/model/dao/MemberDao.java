@@ -3,8 +3,11 @@ package model.dao;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.dto.MemberDto;
+import model.dto.MpointDto;
 
 public class MemberDao  extends Dao{
 	private static MemberDao memberDao = new MemberDao();
@@ -92,8 +95,6 @@ public class MemberDao  extends Dao{
     	}
     
     //7. 회원수정
-    	
-    	
     
     	public boolean mupdate(String mimg ,int mno,String newMpwd ) {
     		try {String sql = "update member set mimg = ? ,mpwd = ? where mno = ? ;";
@@ -140,4 +141,57 @@ public class MemberDao  extends Dao{
     		return false;
     	}
     
+    	
+    	//9. 포인트 지급/사용에 대한  함수
+    	public boolean setPoint(MpointDto dto) {
+    		System.out.println(dto.getMpamount());
+    		try {String sql = "insert into mpoint( mpno, mno , mpamount,mpcomment)values(?,?,?,?)";
+    			ps=conn.prepareStatement(sql);
+    			ps.setString(1, dto.getMpno());
+    			ps.setInt(2, dto.getMno());
+    			ps.setInt(3, dto.getMpamount());
+    			ps.setString(4, dto.getMpcomment());
+    			int rs=ps.executeUpdate();
+    			if(rs==1) {
+    				return true;
+    			}
+    		} catch (Exception e) {System.out.println(e.getStackTrace());}
+    		return false;
+    	}
+    	
+    	
+    	//10. 내 포인트 확인 [로그인한 사람]
+    	public int getPoint(int mno) {
+		try {String sql = "select sum(mpamount) from mpoint where mno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			rs=ps.executeQuery();
+			if (rs.next()) {
+					int sum = rs.getInt(1);
+					return  sum;
+			}else {return 0;}
+				
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace());
+			}
+    		return 0;
+    	}
+    	//11. 내 포인트 사용 내역
+    	public List<MpointDto> getPointlist(int mno){
+    		List<MpointDto> list = new ArrayList<>();
+		try {String sql="select mpcomment from mpoint where mno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				MpointDto dto = new MpointDto(rs.getString(1), rs.getInt(2), 
+						rs.getInt(3),
+						rs.getString(4), rs.getString(5));
+				list.add(dto);
+				return list;
+			}
+				
+			} catch (Exception e) {System.out.println(e.getStackTrace());}
+    		return null;
+    	}
 }

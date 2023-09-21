@@ -36,6 +36,7 @@
 		</form>
 	</div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=35439badb1220aad48f6df6be361a1cf"></script>
+	<script src="/jspweb/js/index.js"  type="text/javascript"></script>
 	<script src="/jspweb/js/product/register.js"  type="text/javascript"></script>
 </body>
 </html>

@@ -62,52 +62,8 @@
 	
 	<!-- 카드(bs) : 다양한 컨텐츠를 표시하는 컨테이너[구역]  -->
 	<div class="container">
-		<div class="row row-cols-1 row-cols-md-4 g-4">
-		  	<div class="col">
-				<div class="card" style="width: 18rem;">
-				 	 <img src="/jspweb/img/명절선물.png" class="card-img-top" alt="...">
-				 	 <div class="card-body">
-					  	  <h5 class="card-title">국내산 1++등급 한우</h5>
-					   	  <p class="card-text">1++ 투뿔 한우선물세트 꽃등심 특수부위 소고기 구이 추석 설 명절 부모님 선물 등바구니</p>
-					   	  <p class="card-text">117,990원</p>
-					   	 <a href="#" class="btn btn-primary">구매하러 가기</a>
-				 	 </div>
-				</div>
-			</div>
-			
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-				 	 <img src="/jspweb/img/명절선물.png" class="card-img-top" alt="...">
-				 	 <div class="card-body">
-					  	  <h5 class="card-title">국내산 1++등급 한우</h5>
-					   	  <p class="card-text">1++ 투뿔 한우선물세트 꽃등심 특수부위 소고기 구이 추석 설 명절 부모님 선물 등바구니</p>
-					   	  <p class="card-text">117,990원</p>
-					   	 <a href="#" class="btn btn-primary">구매하러 가기</a>
-				 	 </div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-				 	 <img src="/jspweb/img/명절선물.png" class="card-img-top" alt="...">
-				 	 <div class="card-body">
-					  	  <h5 class="card-title">국내산 1++등급 한우</h5>
-					   	  <p class="card-text">1++ 투뿔 한우선물세트 꽃등심 특수부위 소고기 구이 추석 설 명절 부모님 선물 등바구니</p>
-					   	  <p class="card-text">117,990원</p>
-					   	 <a href="#" class="btn btn-primary">구매하러 가기</a>
-				 	 </div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-				 	 <img src="/jspweb/img/명절선물.png" class="card-img-top" alt="...">
-				 	 <div class="card-body">
-					  	  <h5 class="card-title">국내산 1++등급 한우</h5>
-					   	  <p class="card-text">1++ 투뿔 한우선물세트 꽃등심 특수부위 소고기 구이 추석 설 명절 부모님 선물 등바구니</p>
-					   	  <p class="card-text">117,990원</p>
-					   	 <a href="#" class="btn btn-primary">구매하러 가기</a>
-				 	 </div>
-				</div>
-			</div>
+		<div class="productBox row row-cols-1 row-cols-md-4 g-4">
+		  	
 		</div>
 	</div>
 
@@ -115,5 +71,6 @@
 	<%@include file="footer.jsp"%>
 	<!--부트 스탭 JS  -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<script src="/jspweb/js/index.js"  type="text/javascript"></script>
 </body>
 </html>

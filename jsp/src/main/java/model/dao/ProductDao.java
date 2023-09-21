@@ -1,6 +1,12 @@
 package model.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import model.dto.ProductDto;
 
@@ -59,7 +65,53 @@ public class ProductDao extends Dao{
     
     
     
-    //3.제품 개별 조회
+    //3.제품 찜하기 등록
+    public boolean setWish(int mno,int pno) {
+    	try {
+    		String sql = getWish(mno, pno) ? 
+    					"delete from pwishList where mno=? and pno=?" :
+    					"insert into pwishList values(? , ?)" ;
+    		ps=conn.prepareStatement(sql);
+    		ps.setInt(1, mno);
+    		ps.setInt(2, pno);
+    		int rs=ps.executeUpdate();
+    		if(rs==1) {
+    			return true;
+    		}
+   
+		} catch (Exception e) {System.out.println("setWish():"+e);}
+    	return false;
+    }
+    
+    //4.제품 찜하기 취소
+    /*rs 사용 중일때는 rs 객체를 새로 생성해줘야한다!. 여기서는 rs가 끝나고 재호출해서 써도 괜찮다.*/
+    public boolean getWish(int mno , int pno) {
+    	try {	String sql="select * from pwishList where mno=? and pno=?";
+    		ps=conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			ps.setInt(2, pno);
+			rs=ps.executeQuery();
+			if(rs.next()) {return true;}
+			} catch (Exception e) {
+			System.out.println("getWish"+e);
+		}return false;
+    
+    }
+    
+    //5. 제품 찜하기 상태 출력
+    public List<ProductDto> getWishProductList(int mno){
+    	List<ProductDto>list=new ArrayList<>();
+    	try {
+    		String sql = "select pno from pwishList list where mno =" +mno;
+    		ps=conn.prepareStatement(sql);
+    		rs=ps.executeQuery();
+    		
+    		while(rs.next()) {list.add(findByPno(rs.getInt("pno")));}
+    		return list;
+    		
+		} catch (Exception e) {System.out.println("getWishProductList"+e);return null;}
+    }
+    
     
     
     
@@ -76,13 +128,89 @@ public class ProductDao extends Dao{
     
     
     //4. 제품 삭제
+    
+    /*rs 사용 중일때는 rs 객체를 새로 생성해줘야한다!. 그래서 resultset rs2를 만들었다.*/
+    public Map<Integer, String> getProductImg(int pno){
+        try {
+           Map<Integer, String> imglist = new HashMap<>();
+           String sql = "select * from productimg where pno = "+pno;
+           PreparedStatement ps2 = conn.prepareStatement(sql);
+           ResultSet rs2=ps2.executeQuery();
+           while (rs2.next()) {
+              imglist.put(rs2.getInt("pimgno"),rs2.getString("pimg"));
+           }return imglist;
+          
+       } catch (Exception e) {System.out.println(e);}return null;
+     }
+     
+     
+     public ProductDto findByPno(int pno) {
+        try {
+           ProductDto dto =new ProductDto();
+          String sql = "select * from product p natural join pcategory pc natural join member m  where pno="+pno;
+          PreparedStatement ps = conn.prepareStatement(sql);
+          ResultSet rs=ps.executeQuery();
+          if(rs.next()) {
+             dto = new ProductDto(
+            rs.getInt("pcno"), rs.getString("pcname"),rs.getInt("pno"),
+            rs.getString("pname"),rs.getString("pcontent"), rs.getInt("pprice"),
+            rs.getInt("pstate"),rs.getString("pdate"),rs.getString("plat"),
+            rs.getString("plng"),rs.getInt("mno"), getProductImg(rs.getInt("pno")),
+            rs.getString("mid")
+            );
+          }return dto;
+        
+        } catch (Exception e) {System.out.println(e);}
+        return null;
+     }
+     
+        //1. N개 제품들을 최신순으로 출력하는 함수
+     public  List<ProductDto>findByTop (int count){
+        List<ProductDto> list =new ArrayList<>();
+        try {String sql = "select * from product order by pdate desc limit ?";  
+        ps=conn.prepareStatement(sql);
+        ps.setInt(1, count);
+        rs=ps.executeQuery();
+           while (rs.next()) {list.add(findByPno(rs.getInt("pno")));}
+           return list;
+       } catch (Exception e) {System.out.println(e);}
+        return null;
+     }
 
 
+     public  List<ProductDto>  findByLatLng(String west,String east,String south,String north){
+    	 System.out.println(east);
+    	 System.out.println(west);
+    	 System.out.println(south);
+    	 System.out.println(north);
+    	 List<ProductDto> list =new ArrayList<>();
+        try { 
+        String sql = "select pno from product where plat between ? and ? and plng between ?and ? order by pdate;";
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, east); ps.setString(2, west);
+        ps.setString(3, south); ps.setString(4, north);
+        rs=ps.executeQuery();
+       while (rs.next()) {list.add(findByPno(rs.getInt("pno")));}
+       }
+       
+        catch (Exception e) {System.out.println(e);}
+       System.out.println(list);
+        return list;
+     }
 
-
-
-
-
+       public  List<ProductDto> findByAll(){
+         List<ProductDto> list =new ArrayList<>();
+          try { 
+          String sql = "select * from product order by pdate";
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs=ps.executeQuery();
+         while (rs.next()) {list.add(findByPno(rs.getInt("pno")));}
+         }
+         
+          catch (Exception e) {System.out.println(e);}
+         
+          return list;
+       }
 }
 // Map<Integer, String> : map객체명.keySet() : map 객체내 모든키 호출
 // --------- get(i) : map컬렉션 set컬렉션은 인덱스 없음.

@@ -36,12 +36,17 @@ public class ServerSocket {
 	public void onError( Session session , Throwable throwable ) { }
 	// 3. 클라이언트소켓 과 서버소켓이 연결이 끊겼을때.
 	@OnClose
-	public void onClose( Session session ) { 
+	public void onClose( Session session ) throws Exception { 
 		// * 접속목록에서 세션 제거 
 		for( ClientDto clientDto : clientList ) { // 접속목록에서 연결이 끊긴 세션 찾기 
 			if( clientDto.getSession() == session ) {
 				// 클라이언트소켓의 세션과 연결이 끊긴 세션과 같으면 해당 dto를 제거하기.
-				clientList.remove( clientDto );
+				
+		         String msg = "{\"type\":\"alarm\",\"msgbox\":\""+clientDto.getMid()+"님이 채팅방에 나갔습니다.\"}";
+		            onMessage(session, msg );
+		            clientList.remove( clientDto );
+		            // 연결이 끊긴 클라이언트 소켓를 모든 접속명단 목록 알림 메시지 보내기 
+
 				break;
 			}
 		}
