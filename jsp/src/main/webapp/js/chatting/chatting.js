@@ -85,8 +85,6 @@ function onMsg(e){
 			 html = `<div class="lcont"> 
 			 
 					<img class="pimg" src="/jspweb/member/img/${msgBox.frommimg}" />
-					
-					
 					<div class="tocont">
 						<div class="name">${msgBox.frommid}</div> 
 						<div class="subcont">
@@ -123,23 +121,23 @@ function onEnterKey () {
 
 }
 
-getEmo();
-function getEmo(){
+get();
+function get(){
 
 	
 	// - 
 	for (let i = 1 ; i<= 43 ; i++){
-		document.querySelector('.emolistbox').innerHTML
-		+=`	<img onclick ="onEmoSend(${i})"
-		src="/jspweb/img/imoji/emo${i}.gif" />`;
+		document.querySelector('.listbox').innerHTML
+		+=`	<img onclick ="onSend(${i})"
+		src="/jspweb/img/imoji/${i}.gif" />`;
 	}
 }
 
 //7. 클릭한 이모티콘 서버로 보내기.
-function onEmoSend(i){
+function onSend(i){
 	
-	let msg ={type : 'emo', content : i  };
-	//type :msg[메시지] , emo[이모티콘] , img[사진]
+	let msg ={type : '', content : i  };
+	//type :msg[메시지] , [이모티콘] , img[사진]
 	// content : 내용물
 	clientSocket.send(JSON.stringify(msg));
 }
@@ -157,8 +155,8 @@ function typeHTML( msg ){
 	}
 	
 	// 2. 이모티콘 타입 일때는 <img> 반환
-	else if(msg.type== 'emo'){
-		html +=`<img src = "/jspweb/img/imoji/emo${msg.content}.gif"`;
+	else if(msg.type== ''){
+		html +=`<img src = "/jspweb/img/imoji/${msg.content}.gif"`;
 	}
 	else if(msg.type=='alarm'){
 		html +=`<div class="alarm"> ${msg.content} </div>`;
